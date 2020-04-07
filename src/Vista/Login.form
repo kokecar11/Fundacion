@@ -17,12 +17,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="85" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabelClave" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelUsuario" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelClave" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTextFieldUsuario" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
                   <Component id="jTextFieldClave" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
@@ -61,14 +61,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="usuario"/>
+        <Property name="text" type="java.lang.String" value="Usuario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldClave">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelClave">
       <Properties>
-        <Property name="text" type="java.lang.String" value="clave"/>
+        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonIniciar">

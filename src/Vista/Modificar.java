@@ -32,17 +32,11 @@ public class Modificar extends javax.swing.JPanel {
         jLabelDatosPersonales2 = new javax.swing.JLabel();
         jLabelModificar = new javax.swing.JLabel();
         jButtonDatosPersonales = new javax.swing.JButton();
-        jLabelDatosPersonales = new javax.swing.JLabel();
         jButtonUbicacionContacto = new javax.swing.JButton();
         jButtonPerfilAcademico = new javax.swing.JButton();
         jButtonSalud = new javax.swing.JButton();
         jButtonFamilia = new javax.swing.JButton();
         jButtonInscripcion = new javax.swing.JButton();
-        jLabelUbicacionContacto = new javax.swing.JLabel();
-        jLabelPerfilAcademico = new javax.swing.JLabel();
-        jLabelSalud = new javax.swing.JLabel();
-        jLabelFamilia = new javax.swing.JLabel();
-        jLabelInscripcion = new javax.swing.JLabel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jComboBoxEstudiantes = new javax.swing.JComboBox<>();
@@ -50,158 +44,78 @@ public class Modificar extends javax.swing.JPanel {
 
         jLabelDatosPersonales2.setText("Datos personales");
 
-        jLabelModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelModificar.setText("MODIFICAR");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonDatosPersonales.setText("1");
+        jLabelModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelModificar.setText("MODIFICAR ESTUDIANTES");
+        add(jLabelModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+
+        jButtonDatosPersonales.setText("Datos Personales");
         jButtonDatosPersonales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDatosPersonalesActionPerformed(evt);
             }
         });
+        add(jButtonDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 145, 40));
 
-        jLabelDatosPersonales.setText("Datos personales");
-
-        jButtonUbicacionContacto.setText("2");
+        jButtonUbicacionContacto.setText("Ubicación y Contacto");
         jButtonUbicacionContacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUbicacionContactoActionPerformed(evt);
             }
         });
+        add(jButtonUbicacionContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 145, 40));
 
-        jButtonPerfilAcademico.setText("3");
+        jButtonPerfilAcademico.setText("Perfil Academico");
         jButtonPerfilAcademico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPerfilAcademicoActionPerformed(evt);
             }
         });
+        add(jButtonPerfilAcademico, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 145, 40));
 
-        jButtonSalud.setText("4");
+        jButtonSalud.setText("Salud");
         jButtonSalud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaludActionPerformed(evt);
             }
         });
+        add(jButtonSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 145, 40));
 
-        jButtonFamilia.setText("5");
+        jButtonFamilia.setText("Familia");
         jButtonFamilia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFamiliaActionPerformed(evt);
             }
         });
+        add(jButtonFamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 145, 40));
 
-        jButtonInscripcion.setText("6");
+        jButtonInscripcion.setText("Inscripción");
         jButtonInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInscripcionActionPerformed(evt);
             }
         });
+        add(jButtonInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 145, 40));
 
-        jLabelUbicacionContacto.setText("Ubicacion y Contacto");
+        jTextFieldBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 190, 28));
 
-        jLabelPerfilAcademico.setText("Perfil Academico");
-
-        jLabelSalud.setText("Salud");
-
-        jLabelFamilia.setText("Familia");
-
-        jLabelInscripcion.setText("Inscripcion");
-
+        jButtonBuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonBuscar.setText("Buscar");
+        add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
 
+        jComboBoxEstudiantes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jComboBoxEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 190, 28));
+
+        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDatosPersonales)
-                                    .addComponent(jButtonDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabelModificar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(86, 86, 86)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelUbicacionContacto)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(9, 9, 9)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jButtonUbicacionContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jButtonFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabelSalud)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelFamilia)
-                                .addGap(111, 111, 111)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonPerfilAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPerfilAcademico)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabelInscripcion))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(jButtonVolver)))
-                .addGap(69, 69, 69))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelModificar)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUbicacionContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPerfilAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDatosPersonales)
-                    .addComponent(jLabelUbicacionContacto)
-                    .addComponent(jLabelPerfilAcademico))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelSalud)
-                    .addComponent(jLabelFamilia)
-                    .addComponent(jLabelInscripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBuscar)
-                    .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonVolver))
-                .addGap(51, 51, 51))
-        );
+        add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -243,14 +157,8 @@ public class Modificar extends javax.swing.JPanel {
     private javax.swing.JButton jButtonUbicacionContacto;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxEstudiantes;
-    private javax.swing.JLabel jLabelDatosPersonales;
     private javax.swing.JLabel jLabelDatosPersonales2;
-    private javax.swing.JLabel jLabelFamilia;
-    private javax.swing.JLabel jLabelInscripcion;
     private javax.swing.JLabel jLabelModificar;
-    private javax.swing.JLabel jLabelPerfilAcademico;
-    private javax.swing.JLabel jLabelSalud;
-    private javax.swing.JLabel jLabelUbicacionContacto;
     private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 

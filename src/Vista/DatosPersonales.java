@@ -65,151 +65,104 @@ public class DatosPersonales extends javax.swing.JPanel {
         jTextFieldTallaCamisa = new javax.swing.JTextField();
         jDateChooserFechaNacimiento = new com.toedter.calendar.JDateChooser();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabelDatosPersonales.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelDatosPersonales.setText("DATOS PERSONALES");
+        add(jLabelDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, -1));
 
-        jLabelIdentificacion.setText("Identifiacion");
+        jLabelIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelIdentificacion.setText("Indentificación");
+        add(jLabelIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 121, -1, -1));
 
-        jLabelApellido.setText("Apellido");
+        jLabelApellido.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelApellido.setText("Apellidos");
+        add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 59, -1, -1));
 
+        jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelFechaNacimiento.setText("Fecha Nacimiento");
+        add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 179, -1, -1));
 
-        jLabelNombre.setText("Nombre");
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelNombre.setText("Nombres");
+        add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 65, -1, -1));
 
-        jLabelOcupacion.setText("Ocupacion");
+        jLabelOcupacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelOcupacion.setText("Ocupación");
+        add(jLabelOcupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 237, -1, -1));
 
-        jLabelTipoIdentificacion.setText("TipoIdentificacion");
+        jLabelTipoIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTipoIdentificacion.setText("Tipo de Documento");
+        add(jLabelTipoIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 121, -1, -1));
 
+        jLabelLugarNacimiento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelLugarNacimiento.setText("Lugar Nacimiento");
+        add(jLabelLugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 179, -1, -1));
 
+        jLabelTallaPantalon.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTallaPantalon.setText("Talla Pantalon");
+        add(jLabelTallaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 292, -1, -1));
 
+        jLabelTallaZapatos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTallaZapatos.setText("Talla Zapatos ");
+        add(jLabelTallaZapatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 341, -1, -1));
 
+        jTextFieldIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldIdentificacionActionPerformed(evt);
+            }
+        });
+        add(jTextFieldIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 115, 190, 28));
+
+        jTextFieldNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 59, 190, 28));
+
+        jTextFieldOcupacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldOcupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 231, 190, 28));
+
+        jTextFieldApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 59, 191, 28));
+
+        jTextFieldTallaPantalon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldTallaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 286, 190, 28));
+
+        jTextFieldTallaZapatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldTallaZapatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 341, 190, 28));
+
+        jTextFieldLugarNacimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldLugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 173, 190, 28));
+
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSiguienteModificarActionPerformed(evt);
             }
         });
+        add(jButtonSiguienteModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 396, -1, -1));
 
+        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
             }
         });
+        add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 396, -1, -1));
 
+        jComboBoxTipoIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jComboBoxTipoIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 115, 190, 28));
+
+        jLabelTallaCamisa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTallaCamisa.setText("Talla Camisa ");
+        add(jLabelTallaCamisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 292, -1, -1));
+
+        jTextFieldTallaCamisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(jTextFieldTallaCamisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 286, 190, 28));
 
         jDateChooserFechaNacimiento.setDateFormatString("yyyy/MM/dd");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelIdentificacion)
-                        .addGap(55, 55, 55)
-                        .addComponent(jTextFieldIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelTipoIdentificacion)
-                            .addComponent(jLabelFechaNacimiento)
-                            .addComponent(jLabelTallaPantalon)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelOcupacion)
-                                .addGap(14, 14, 14)))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxTipoIdentificacion, 0, 117, Short.MAX_VALUE)
-                            .addComponent(jTextFieldOcupacion)
-                            .addComponent(jTextFieldTallaPantalon)
-                            .addComponent(jDateChooserFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelApellido)
-                            .addComponent(jLabelNombre)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTallaCamisa)
-                            .addComponent(jLabelTallaZapatos)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabelLugarNacimiento)))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldTallaZapatos, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTallaCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelDatosPersonales)
-                        .addGap(187, 187, 187))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonVolver)
-                        .addGap(218, 218, 218)
-                        .addComponent(jButtonSiguienteModificar)
-                        .addGap(147, 147, 147))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelDatosPersonales)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelIdentificacion)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelTipoIdentificacion)
-                        .addComponent(jComboBoxTipoIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelApellido)
-                        .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelFechaNacimiento)
-                            .addComponent(jLabelLugarNacimiento)
-                            .addComponent(jTextFieldLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldTallaPantalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTallaPantalon)
-                            .addComponent(jLabelTallaCamisa)
-                            .addComponent(jTextFieldTallaCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonSiguienteModificar)
-                            .addComponent(jButtonVolver))
-                        .addGap(34, 34, 34))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDateChooserFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelOcupacion)
-                            .addComponent(jTextFieldOcupacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTallaZapatos)
-                            .addComponent(jTextFieldTallaZapatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(166, 166, 166))))
-        );
+        add(jDateChooserFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 173, 190, 28));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSiguienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteModificarActionPerformed
@@ -219,6 +172,10 @@ public class DatosPersonales extends javax.swing.JPanel {
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         cambiarVolver();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jTextFieldIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdentificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldIdentificacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,6 +6,7 @@
 package Vista;
 import Vista.Principal;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -13,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PreTalleres extends javax.swing.JPanel {
     private Principal principal;
+    public int seleccionTaller=-1;
     /**
      * Creates new form Talleres
      */
@@ -77,6 +79,11 @@ public class PreTalleres extends javax.swing.JPanel {
         ));
         jTableTalleres.setFocusable(false);
         jTableTalleres.getTableHeader().setReorderingAllowed(false);
+        jTableTalleres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableTalleresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableTalleres);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -128,6 +135,10 @@ public class PreTalleres extends javax.swing.JPanel {
         CargarModificarTaller();
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
+    private void jTableTalleresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTalleresMouseClicked
+         seleccionTaller= evt.getY() /jTableTalleres.getRowHeight();  
+    }//GEN-LAST:event_jTableTalleresMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCrear;
@@ -143,8 +154,13 @@ public class PreTalleres extends javax.swing.JPanel {
         principal.CambioTalleres(1);
     }
     private void CargarModificarTaller() {
-        principal.mostrarPanelTalleres();
-        principal.CambioTalleres(2);
+        if(seleccionTaller!=-1){
+            principal.mostrarPanelTalleres();
+            principal.CambioTalleres(2);
+            principal.CargarTaller((String) jTableTalleres.getValueAt(seleccionTaller, 0));
+        }else{
+            JOptionPane.showMessageDialog(this, "ELEGIR TALLER");
+        }    
     }
     public void cargarTabla() {
         DefaultTableModel modeloTabla= (DefaultTableModel) jTableTalleres.getModel();

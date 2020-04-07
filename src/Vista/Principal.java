@@ -374,6 +374,9 @@ public class Principal extends javax.swing.JFrame {
     void EliminarReubicacion(long cedula) {
         controladorReubicacion.EliminarReubicacion(cedula);
     }
+    void EliminarInscripcionTaller(String taller) {
+        controladorTalleres.EliminarInscripcionTaller(taller);
+    }
     void CargarAlumno(long cedula) {
         datosPersonales.CargarAlumno(controladorAlumno.DatosAlumno(cedula));
     }
@@ -386,6 +389,9 @@ public class Principal extends javax.swing.JFrame {
     void CargarSalud(long cedula) {
         salud.CargarSalud(controladorSalud.DatosSalud(cedula));
     }
+    void CargarTaller(String nombre) {
+        talleres.CargarTaller(controladorTalleres.DatosTaller(nombre));
+    }
     void CargarCambiosInscripcion() {
         inscripcion.CargarCambiosInscripcion();
     }
@@ -397,6 +403,9 @@ public class Principal extends javax.swing.JFrame {
     }
     boolean TallerExiste(String nombre) {
         return controladorTalleres.TallerExiste(nombre);
+    }
+    boolean TallerExiste(String nombreNuevo,String nombreActual) {
+        return controladorTalleres.TallerExiste(nombreNuevo,nombreActual);
     }
     boolean ReubicacionExiste(long cedula){
         return controladorReubicacion.ReubicacionExiste(cedula);
@@ -447,6 +456,9 @@ public class Principal extends javax.swing.JFrame {
     int ObtenerNumeroTalleresActivos() {
         return controladorTalleres.contarNumeroTalleresActivos();
     }
+    int ObtenerNumeroInscritosTalleres(String taller) {
+        return controladorTalleres.ContarNumeroInscritosTalleres(taller);
+    }
     public Object[][] CargarFamiliaAlumno(long cedula) {
         return controladorFamilia.CargarFamiliaAlumno(cedula);
     }
@@ -461,7 +473,14 @@ public class Principal extends javax.swing.JFrame {
         Reubicaciones reubicacion = new Reubicaciones(ubicacion, Descripcion, cedula);
         return controladorReubicacion.ModificarReubicacion(reubicacion);
     }
-    
+
+    boolean ModificarTaller(String nombre, boolean estado, int cupos, String descripcion,String taller) {
+        Tallere tallere = new Tallere(nombre,descripcion,estado,cupos);
+        controladorTalleres.ModificarInscripcionTaller(nombre,taller);
+        return controladorTalleres.ModificarTaller(tallere,taller);
+        
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

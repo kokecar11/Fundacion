@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 public class Talleres extends javax.swing.JPanel {
     private Principal principal;
     int panel=0;
+    String taller="";
+    int combobox=0;
     /**
      * Creates new form Talleres
      */
@@ -32,7 +34,7 @@ public class Talleres extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTalleres = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelEstado = new javax.swing.JLabel();
@@ -40,18 +42,13 @@ public class Talleres extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescripcion = new javax.swing.JTextArea();
         jLabelDescripcion = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelCupos = new javax.swing.JLabel();
         jTextFieldCupos = new javax.swing.JTextField();
         jButtonVolver = new javax.swing.JButton();
         jButtonCrearModificar = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("TALLERES");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
-            }
-        });
+        jLabelTalleres.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelTalleres.setText("TALLERES");
 
         jLabelNombre.setText("Nombre");
 
@@ -69,7 +66,7 @@ public class Talleres extends javax.swing.JPanel {
 
         jLabelDescripcion.setText("Descripcion");
 
-        jLabel2.setText("Cupos");
+        jLabelCupos.setText("Cupos");
 
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +94,7 @@ public class Talleres extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(229, 229, 229)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabelTalleres))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -110,7 +107,7 @@ public class Talleres extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
+                                .addComponent(jLabelCupos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldCupos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -126,14 +123,14 @@ public class Talleres extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabelTalleres)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombre)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEstado)
                     .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelCupos)
                     .addComponent(jTextFieldCupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,10 +152,6 @@ public class Talleres extends javax.swing.JPanel {
         Volver();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        EventoComboBox();
-    }//GEN-LAST:event_jLabel1MouseExited
-
     private void jComboBoxEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEstadoItemStateChanged
         EventoComboBox();
     }//GEN-LAST:event_jComboBoxEstadoItemStateChanged
@@ -168,11 +161,11 @@ public class Talleres extends javax.swing.JPanel {
     private javax.swing.JButton jButtonCrearModificar;
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxEstado;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelCupos;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelEstado;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelTalleres;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescripcion;
     private javax.swing.JTextField jTextFieldCupos;
@@ -199,23 +192,25 @@ public class Talleres extends javax.swing.JPanel {
             if(VerificarDatos()){
                 if(TallerExiste()){
                     if(VerificarNumero()){
-                        String nombre = jTextFieldNombre.getText();
-                        boolean estado=true;
-                        if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
-                            estado=true;
-                        }else{
-                            estado=false;
-                        }
-                        int cupos = -1;
-                        if(!(jTextFieldCupos.getText().equals(""))){
-                            cupos = Integer.parseInt(jTextFieldCupos.getText());
-                        }
-                        String descripcion = jTextAreaDescripcion.getText();
-                        if(principal.CrearTaller(nombre,estado,cupos,descripcion)){
-                            principal.mostrarPanelPreTalleres();
-                            principal.CargarTalleres();
-                        }else{
-                            JOptionPane.showMessageDialog(this, "Datos erroenos");
+                        if(tamanioParrafos()){
+                            String nombre = jTextFieldNombre.getText();
+                            boolean estado=true;
+                            if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
+                                estado=true;
+                            }else{
+                                estado=false;
+                            }
+                            int cupos = -1;
+                            if(!(jTextFieldCupos.getText().equals(""))){
+                                cupos = Integer.parseInt(jTextFieldCupos.getText());
+                            }
+                            String descripcion = jTextAreaDescripcion.getText();
+                            if(principal.CrearTaller(nombre,estado,cupos,descripcion)){
+                                principal.mostrarPanelPreTalleres();
+                                principal.CargarTalleres();
+                            }else{
+                                JOptionPane.showMessageDialog(this, "Datos erroenos");
+                            }
                         }
                     }    
                 }else{
@@ -224,11 +219,43 @@ public class Talleres extends javax.swing.JPanel {
                 
             }   
         }if(panel==2){
-            
+            if(VerificarDatos()){
+                if(TallerExisteSin()){
+                    if(VerificarNumero()){
+                        if(VerificarCupos()){
+                            if(tamanioParrafos()){
+                                String nombre = jTextFieldNombre.getText();
+                                boolean estado=true;
+                                if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
+                                    estado=true;
+                                }else{
+                                    estado=false;
+                                }
+                                int cupos = -1;
+                                if(!(jTextFieldCupos.getText().equals(""))){
+                                    cupos = Integer.parseInt(jTextFieldCupos.getText());
+                                }
+                                String descripcion = jTextAreaDescripcion.getText();
+                                if(principal.ModificarTaller(nombre,estado,cupos,descripcion,taller)){
+                                    principal.mostrarPanelPreTalleres();
+                                    principal.CargarTalleres();
+                                }else{
+                                    JOptionPane.showMessageDialog(this, "Datos erroenos");
+                                }
+                            }    
+                        }    
+                    }    
+                }else{
+                    JOptionPane.showMessageDialog(this, "TALLER YA EXISTENTE");
+                }
+            }    
         }
     }
     private boolean TallerExiste() {
         return principal.TallerExiste(jTextFieldNombre.getText());
+    }
+    private boolean TallerExisteSin() {
+        return principal.TallerExiste(jTextFieldNombre.getText(),taller);
     }
     private void Volver() {
         principal.mostrarPanelPreTalleres();
@@ -257,7 +284,7 @@ public class Talleres extends javax.swing.JPanel {
             
         }
         if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
-            if(jTextFieldCupos.getText().equals("")){
+            if(jTextFieldCupos.getText().equals("")||NumeroPositivo(jTextFieldCupos.getText())){
                 JOptionPane.showMessageDialog(null, "CUPOS ERRONEOS");
                 return false;
             }
@@ -272,13 +299,91 @@ public class Talleres extends javax.swing.JPanel {
             return true;
         }
     }
-
-    private void EventoComboBox() {
-        if(((String) jComboBoxEstado.getSelectedItem()).equals("Inactivo")){
-            jTextFieldCupos.setEnabled(false);
-            jTextFieldCupos.setText("");
-       }else{
-            jTextFieldCupos.setEnabled(true);
-        }
+    private boolean NumeroPositivo(String cadena) {
+       try {
+            Long numero=Long.parseLong(cadena);
+            if(numero>0){
+                return false;
+            }else{
+                return true;
+            }
+        } catch (NumberFormatException nfe) {
+            return true;
+        } 
     }
+    private void EventoComboBox() {
+        if(panel==1){
+            if(((String) jComboBoxEstado.getSelectedItem()).equals("Inactivo")){
+                jTextFieldCupos.setEnabled(false);
+                jTextFieldCupos.setText("");
+            }else{
+                jTextFieldCupos.setEnabled(true);
+            }
+        }else if(panel==2){
+            if(((String) jComboBoxEstado.getSelectedItem()).equals("Inactivo")&&combobox==0){
+                int valor =JOptionPane.showConfirmDialog(this, "si lo cambia a inactivo desmatriculara todos los alumnos","Confirmar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(valor==JOptionPane.YES_OPTION){
+                    jTextFieldCupos.setEnabled(false);
+                    jTextFieldCupos.setText("");
+                    principal.EliminarInscripcionTaller(taller);
+                    combobox++;
+                }    
+            }else{
+                if(((String) jComboBoxEstado.getSelectedItem()).equals("Inactivo")){
+                    combobox=0;
+                }else{
+                    combobox=0;
+                    jTextFieldCupos.setEnabled(true);
+                }
+                
+            }
+            
+        }    
+    }
+
+    void CargarTaller(String[] DatosTaller) {
+        jTextFieldNombre.setText(DatosTaller[0]);
+        jTextAreaDescripcion.setText(DatosTaller[1]);
+        jComboBoxEstado.setSelectedIndex(TipoEstado(DatosTaller[2]));
+        if(!(DatosTaller[3].equals("-1"))){
+            jTextFieldCupos.setText(DatosTaller[3]);
+        }
+        taller=DatosTaller[0];
+    }
+
+    private int TipoEstado(String estado) {
+        if(estado.equals("1")){
+            return 1;
+        }else if(estado.equals("0")){
+            return 2;
+        }
+        return 0;
+    }
+
+    private boolean VerificarCupos() {
+        int talleres = principal.ObtenerNumeroInscritosTalleres(taller);
+        Long numero=Long.parseLong(jTextFieldCupos.getText());
+        if(numero>=talleres){
+            return true;
+        }else{
+            JOptionPane.showMessageDialog(null, "CANTIDAD DE PERSONAS INSCRITAS SUPERA CUPO");
+        }
+        return false;
+    }
+
+    private boolean tamanioParrafos() {
+        if(((jTextFieldNombre.getText()).length())>30){
+            JOptionPane.showMessageDialog(null, "NOMBRE EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldCupos.getText()).length())>2){
+            JOptionPane.showMessageDialog(null, "LOS CUPOS EXCEDEN EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaDescripcion.getText()).length())>390){
+            JOptionPane.showMessageDialog(null, "DESCRIPCION EXCEDEN EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
+    }
+
+    
 }

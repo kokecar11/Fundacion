@@ -132,7 +132,32 @@ public class ControladorTalleres {
             return false;
         }
     }
-
+     public boolean TallerExiste(String nombreNuevo, String nombreActual) {
+         try {
+            String val = "";
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String sql = "SELECT nombre FROM talleres WHERE nombre ='"+nombreNuevo+"'";
+            Statement st = conectar.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                val = rs.getString(1);
+            }
+            rs.close();
+            st.close();
+            conectar.close();
+            if (val.equals("")) {
+                return true;
+            }else if(val.equals(nombreActual)){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorTalleres.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     public static String[] CargarNombreTalleres() {
         Conexion con = new Conexion();
         Connection conexion = con.conexion();
@@ -171,6 +196,92 @@ public class ControladorTalleres {
         } catch (SQLException ex) {
             Logger.getLogger(ControladorTalleres.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        }
+    }
+        public String[] DatosTaller(String nombre) {
+        Conexion con = new Conexion();
+        Connection conexion = con.conexion();
+        String sql = "SELECT nombre, descripcion, estado,cupos FROM talleres WHERE nombre='"+nombre+"'";
+        Statement st;
+        String datos[] = new String[4];
+        try {
+            st = conexion.createStatement();
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                datos[0] = res.getString(1);
+                datos[1] = res.getString(2);
+                datos[2] = res.getString(3);
+                datos[3] = res.getString(4);
+            }
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return datos;
+    }
+
+    public boolean ModificarTaller(Tallere tallere,String taller) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE talleres SET nombre='" + tallere.getNombre()+ "',descripcion='" + tallere.getDescripcion() + "',estado=" + tallere.isEstado()+ ",Cupos='" + tallere.getCupos()+ "' WHERE nombre='" + taller+ "';";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorReubicacion.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    public boolean ModificarInscripcionTaller(String nombreNuevo,String nombreActual) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE InscripcionTaller SET nombre='" +nombreNuevo+ "' WHERE nombre='"+nombreActual+"';";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorReubicacion.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    public void EliminarInscripcionTaller(String taller) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String sql= "Delete FROM InscripcionTaller where nombre='"+taller+"'";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(sql);
+            conectar.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int ContarNumeroInscritosTalleres(String taller) {
+       try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String sql = "SELECT count(*) from InscripcionTaller WHERE nombre ='"+taller+"'";
+            PreparedStatement psd = conectar.prepareStatement(sql);
+            ResultSet res;
+            int nRegistros;
+            res = psd.executeQuery(sql);
+            if (res.next()) {
+                nRegistros = Integer.parseInt(res.getString(1));
+            } else {
+                nRegistros = 0;
+            }
+            conectar.close();
+            return nRegistros;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorTalleres.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
         }
     }
 }

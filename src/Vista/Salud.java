@@ -245,23 +245,40 @@ public class Salud extends javax.swing.JPanel {
     private void cambiarModificarSeguir() {
         if(panel==1){
             if(VerificarDatos()){
-                String afiliacionSalud = jTextFieldConvenio.getText();
-                String grupoSanguineo=(String) jComboBoxGrupoSanguineo.getSelectedItem();
-                String rH=(String) jComboBoxRH.getSelectedItem();
-                String diagnostico = jTextAreaDiagnostico.getText();
-                String medicamentos = jTextAreaMedicamentos.getText();
-                String recomendaciones = jTextAreaRecomendaciones.getText();
-                if(principal.CrearSalud(afiliacionSalud,grupoSanguineo,rH,diagnostico,medicamentos,recomendaciones,cedula)){
-                    principal.mostrarPanelPreFamilia();
-                    principal.CambioPreFamilia(1);
-                    principal.CambioCedulaPreFamilia(cedula);
-                    principal.CargarFamiliaSalud(cedula);
-                }else{
-                    JOptionPane.showMessageDialog(null, "DATOS ERRONEOS");
-                }
+                if(VerificarCadenas()){
+                    String afiliacionSalud = jTextFieldConvenio.getText();
+                    String grupoSanguineo=(String) jComboBoxGrupoSanguineo.getSelectedItem();
+                    String rH=(String) jComboBoxRH.getSelectedItem();
+                    String diagnostico = jTextAreaDiagnostico.getText();
+                    String medicamentos = jTextAreaMedicamentos.getText();
+                    String recomendaciones = jTextAreaRecomendaciones.getText();
+                    if(principal.CrearSalud(afiliacionSalud,grupoSanguineo,rH,diagnostico,medicamentos,recomendaciones,cedula)){
+                        principal.mostrarPanelPreFamilia();
+                        principal.CambioPreFamilia(1);
+                        principal.CambioCedulaPreFamilia(cedula);
+                        principal.CargarFamiliaSalud(cedula);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "DATOS ERRONEOS");
+                    }
+                }    
             }    
         }if(panel==2){
-            
+            if(VerificarDatos()){
+                if(VerificarCadenas()){
+                    String afiliacionSalud = jTextFieldConvenio.getText();
+                    String grupoSanguineo=(String) jComboBoxGrupoSanguineo.getSelectedItem();
+                    String rH=(String) jComboBoxRH.getSelectedItem();
+                    String diagnostico = jTextAreaDiagnostico.getText();
+                    String medicamentos = jTextAreaMedicamentos.getText();
+                    String recomendaciones = jTextAreaRecomendaciones.getText();
+                    if(principal.ModificarSalud(afiliacionSalud,grupoSanguineo,rH,diagnostico,medicamentos,recomendaciones,cedula)){
+                        principal.mostrarPanelModificar();
+                        principal.CargarAlumnos();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "DATOS ERRONEOS");
+                    }
+                }    
+            }    
         }
     }
     void CambiarCedual(long cedula) {
@@ -275,6 +292,7 @@ public class Salud extends javax.swing.JPanel {
             principal.CargarPerfilAcademico(cedula);
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
     private boolean VerificarDatos() {
@@ -299,6 +317,14 @@ public class Salud extends javax.swing.JPanel {
         jTextAreaRecomendaciones.setText(DatosSalud[5]);
         principal.EliminarSalud(cedula);
     }
+    void CargarSaludModificar(String[] DatosSalud) {
+        jTextFieldConvenio.setText(DatosSalud[0]);
+        jComboBoxGrupoSanguineo.setSelectedIndex(TipoGrupoSanguineo(DatosSalud[1]));
+        jComboBoxRH.setSelectedIndex(TipoRH(DatosSalud[2]));;
+        jTextAreaDiagnostico.setText(DatosSalud[3]);
+        jTextAreaMedicamentos.setText(DatosSalud[4]);
+        jTextAreaRecomendaciones.setText(DatosSalud[5]);
+    }
     private int TipoGrupoSanguineo(String grupoSanguineo) {
         if(grupoSanguineo.equals("A")){
             return 1;
@@ -318,5 +344,22 @@ public class Salud extends javax.swing.JPanel {
             return 2;
         }
         return 0;
+    }
+
+    private boolean VerificarCadenas() {
+        if(((jTextFieldConvenio.getText()).length())>30){
+            JOptionPane.showMessageDialog(null, "AFILIACION EN SALUD EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaDiagnostico.getText()).length())>295){
+            JOptionPane.showMessageDialog(null, "DIAGNOSTICO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaMedicamentos.getText()).length())>195){
+            JOptionPane.showMessageDialog(null, "MEDICAMENTOS EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaRecomendaciones.getText()).length())>295){
+            JOptionPane.showMessageDialog(null, "RECOMENDACIONES EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
     }
 }

@@ -156,19 +156,33 @@ public class PerfilAcademico extends javax.swing.JPanel {
     private void cambiarModificarSeguir() {
         if(panel==1){
             if(VerificarDatos()){
-                String institucionEducativa = jTextFieldInstitucionEducatica.getText();
-                String nivelEscolar = jTextFieldNivelEscolar.getText();
-                String grado = jTextFieldGrado.getText();
-                if(principal.CrearPerfilAcademico(institucionEducativa,nivelEscolar,grado,cedula)){
-                    principal.mostrarPanelSalud();
-                    principal.CambioSalud(1);  
-                    principal.CambioCedulaSalud(cedula);
-                }else{
-                    JOptionPane.showMessageDialog(this, "Datos erroenos"); 
-                }
+                if(VerifivarCadena()){
+                    String institucionEducativa = jTextFieldInstitucionEducatica.getText();
+                    String nivelEscolar = jTextFieldNivelEscolar.getText();
+                    String grado = jTextFieldGrado.getText();
+                    if(principal.CrearPerfilAcademico(institucionEducativa,nivelEscolar,grado,cedula)){
+                        principal.mostrarPanelSalud();
+                        principal.CambioSalud(1);  
+                        principal.CambioCedulaSalud(cedula);
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Datos erroenos"); 
+                    }
+                }    
             }
         }if(panel==2){
-            
+            if(VerificarDatos()){
+                if(VerifivarCadena()){
+                    String institucionEducativa = jTextFieldInstitucionEducatica.getText();
+                    String nivelEscolar = jTextFieldNivelEscolar.getText();
+                    String grado = jTextFieldGrado.getText();
+                    if(principal.ModificarPerfilAcademico(institucionEducativa,nivelEscolar,grado,cedula)){
+                        principal.mostrarPanelModificar();
+                        principal.CargarAlumnos();
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Datos erroenos"); 
+                    }
+                }    
+            }
         }
     }
     void CambiarCedual(long cedula) {
@@ -182,6 +196,7 @@ public class PerfilAcademico extends javax.swing.JPanel {
             principal.CargarContacto(cedula);
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
     private boolean VerificarDatos() {
@@ -196,5 +211,24 @@ public class PerfilAcademico extends javax.swing.JPanel {
         jTextFieldGrado.setText(DatosPerfilAcademico[1]);
         jTextFieldInstitucionEducatica.setText(DatosPerfilAcademico[2]);
         principal.EliminarPerfilAcademico(cedula);
+    }
+    void CargarPerfilAcademicoModificar(String[] DatosPerfilAcademico) {
+        jTextFieldNivelEscolar.setText(DatosPerfilAcademico[0]);
+        jTextFieldGrado.setText(DatosPerfilAcademico[1]);
+        jTextFieldInstitucionEducatica.setText(DatosPerfilAcademico[2]);
+    }
+
+    private boolean VerifivarCadena() {
+        if(((jTextFieldInstitucionEducatica.getText()).length())>78){
+            JOptionPane.showMessageDialog(null, "INSTITUCION EDUCATIVA EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldNivelEscolar.getText()).length())>45){
+            JOptionPane.showMessageDialog(null, "NIVEL ESCOLAR EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldGrado.getText()).length())>17){
+            JOptionPane.showMessageDialog(null, "GRADO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
     }
 }

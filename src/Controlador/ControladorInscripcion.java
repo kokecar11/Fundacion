@@ -10,6 +10,7 @@ import Modelo.InscripcionFundacion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +31,22 @@ public class ControladorInscripcion {
             psd.setLong(3, inscripcionFundacion.getAlumnoID());
             psd.executeUpdate();
             psd.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorInscripcion.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean ModificarCedula(long identificacion, long identificacionAntigua) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE inscripcionfundacion SET alumnoid='" +identificacion+ "' WHERE alumnoid="+identificacionAntigua+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
             conectar.close();
             return true;
         } catch (SQLException ex) {

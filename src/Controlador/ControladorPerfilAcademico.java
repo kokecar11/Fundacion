@@ -40,6 +40,21 @@ public class ControladorPerfilAcademico {
             return false;
         }
     }
+    public boolean ModificarPerfilAcademico(PerfilAcademicos perfilAcademicos) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE PerfilAcademico SET NivelEscolar='"+perfilAcademicos.getNivelEscolar()+"',Grado='"+perfilAcademicos.getGrado()+"',InstitucionEducativo='"+perfilAcademicos.getInstitucionEducativa()+"' WHERE AlumnoID="+perfilAcademicos.getAlumnoID()+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorPerfilAcademico.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     public String[] DatosPerfilAcademico(long cedula) {
         Conexion con = new Conexion();
         Connection conexion = con.conexion();
@@ -70,6 +85,22 @@ public class ControladorPerfilAcademico {
             conectar.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean ModificarCedula(long identificacion, long identificacionAntigua) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE PerfilAcademico SET alumnoid='" +identificacion+ "' WHERE alumnoid="+identificacionAntigua+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorPerfilAcademico.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
 }

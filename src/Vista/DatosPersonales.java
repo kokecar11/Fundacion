@@ -223,30 +223,55 @@ public class DatosPersonales extends javax.swing.JPanel {
         if(panel==1){
             if(VerificarDatos()){
                 if(AlumnoExiste()){
-                    long identificacion = Long.parseLong(jTextFieldIdentificacion.getText());
-                    String tipoIdentificacion = (String) jComboBoxTipoIdentificacion.getSelectedItem();
-                    String nombre = jTextFieldNombre.getText();
-                    String apellido = jTextFieldApellido.getText();
-                    String fechaNacimiento =((JTextField)jDateChooserFechaNacimiento.getDateEditor().getUiComponent()).getText();
-                    String lugarNacimiento = jTextFieldLugarNacimiento.getText();
-                    String ocupacion = jTextFieldOcupacion.getText();
-                    String tallaZapatos = jTextFieldTallaZapatos.getText();
-                    String tallaPantalon = jTextFieldTallaPantalon.getText();
-                    String tallaCamisa = jTextFieldTallaCamisa.getText();
-                    if(principal.CrearAlumno(identificacion,tipoIdentificacion,nombre,apellido,fechaNacimiento,lugarNacimiento,ocupacion,tallaZapatos,tallaPantalon,tallaCamisa)){
-                        principal.mostrarPanelContacto();
-                        principal.CambioContacto(1);
-                        cedula = Long.parseLong(jTextFieldIdentificacion.getText());
-                        principal.CambioCedulaContacto(cedula);
-                    }else{
-                        JOptionPane.showMessageDialog(this, "Datos erroenos");
-                    }
+                    if(tamanioCadena()){
+                        long identificacion = Long.parseLong(jTextFieldIdentificacion.getText());
+                        String tipoIdentificacion = (String) jComboBoxTipoIdentificacion.getSelectedItem();
+                        String nombre = jTextFieldNombre.getText();
+                        String apellido = jTextFieldApellido.getText();
+                        String fechaNacimiento =((JTextField)jDateChooserFechaNacimiento.getDateEditor().getUiComponent()).getText();
+                        String lugarNacimiento = jTextFieldLugarNacimiento.getText();
+                        String ocupacion = jTextFieldOcupacion.getText();
+                        String tallaZapatos = jTextFieldTallaZapatos.getText();
+                        String tallaPantalon = jTextFieldTallaPantalon.getText();
+                        String tallaCamisa = jTextFieldTallaCamisa.getText();
+                        if(principal.CrearAlumno(identificacion,tipoIdentificacion,nombre,apellido,fechaNacimiento,lugarNacimiento,ocupacion,tallaZapatos,tallaPantalon,tallaCamisa)){
+                            principal.mostrarPanelContacto();
+                            principal.CambioContacto(1);
+                            cedula = Long.parseLong(jTextFieldIdentificacion.getText());
+                            principal.CambioCedulaContacto(cedula);
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Datos erroenos");
+                        }
+                    }    
                 }else{
                     JOptionPane.showMessageDialog(this, "ALUMNO YA EXISTENTE");
                 }
             }   
         }if(panel==2){
-            
+            if(VerificarDatos()){
+                if(AlumnoExisteSin()){
+                    if(tamanioCadena()){
+                        long identificacion = Long.parseLong(jTextFieldIdentificacion.getText());
+                        String tipoIdentificacion = (String) jComboBoxTipoIdentificacion.getSelectedItem();
+                        String nombre = jTextFieldNombre.getText();
+                        String apellido = jTextFieldApellido.getText();
+                        String fechaNacimiento =((JTextField)jDateChooserFechaNacimiento.getDateEditor().getUiComponent()).getText();
+                        String lugarNacimiento = jTextFieldLugarNacimiento.getText();
+                        String ocupacion = jTextFieldOcupacion.getText();
+                        String tallaZapatos = jTextFieldTallaZapatos.getText();
+                        String tallaPantalon = jTextFieldTallaPantalon.getText();
+                        String tallaCamisa = jTextFieldTallaCamisa.getText();
+                        if(principal.ModificarAlumno(identificacion,tipoIdentificacion,nombre,apellido,fechaNacimiento,lugarNacimiento,ocupacion,tallaZapatos,tallaPantalon,tallaCamisa,cedula)){
+                            principal.mostrarPanelModificar();
+                            principal.CargarAlumnos();
+                        }else{
+                            JOptionPane.showMessageDialog(this, "Datos erroenos");
+                        }
+                    }    
+                }else{
+                    JOptionPane.showMessageDialog(this, "ALUMNO YA EXISTENTE");
+                }
+            }
         }
     }
 
@@ -272,6 +297,9 @@ public class DatosPersonales extends javax.swing.JPanel {
     private boolean AlumnoExiste() {
         return principal.AlumnoExiste(Long.parseLong(jTextFieldIdentificacion.getText()));
     }
+    private boolean AlumnoExisteSin() {
+        return principal.AlumnoExisteSin(Long.parseLong(jTextFieldIdentificacion.getText()),cedula);
+    }
     private static boolean esNumero(String cadena) {
         try {
             Long.parseLong(cadena);
@@ -293,6 +321,7 @@ public class DatosPersonales extends javax.swing.JPanel {
             }
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
 
@@ -320,6 +349,25 @@ public class DatosPersonales extends javax.swing.JPanel {
         jTextFieldTallaCamisa.setText(DatosAlumno[9]);
         principal.EliminarAlumno(cedula);
     }
+    void CargarAlumnoModificar(String[] DatosAlumno) {
+        jTextFieldIdentificacion.setText(DatosAlumno[0]);
+        jComboBoxTipoIdentificacion.setSelectedIndex(TipoIdentificacion(DatosAlumno[1]));
+        jTextFieldNombre.setText(DatosAlumno[2]);
+        jTextFieldApellido.setText(DatosAlumno[3]);
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = null;
+        try {
+            date = formatter.parse(DatosAlumno[4]);
+        } catch (ParseException ex) {
+            Logger.getLogger(DatosPersonales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jDateChooserFechaNacimiento.setDate(date);
+        jTextFieldLugarNacimiento.setText(DatosAlumno[5]);
+        jTextFieldOcupacion.setText(DatosAlumno[6]);
+        jTextFieldTallaPantalon.setText(DatosAlumno[7]);
+        jTextFieldTallaZapatos.setText(DatosAlumno[8]);
+        jTextFieldTallaCamisa.setText(DatosAlumno[9]);
+    }
 
     private int TipoIdentificacion(String TipoIdentificacion) {
         if(TipoIdentificacion.equals("Targeta identificacion")){
@@ -330,6 +378,33 @@ public class DatosPersonales extends javax.swing.JPanel {
         return 0;
     }
 
-    
+    private boolean tamanioCadena() {
+        if(((jTextFieldNombre.getText()).length())>25){
+            JOptionPane.showMessageDialog(null, "NOMBRE EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldApellido.getText()).length())>25){
+            JOptionPane.showMessageDialog(null, "APELLIDO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldIdentificacion.getText()).length())>15){
+            JOptionPane.showMessageDialog(null, "IDENTIFICACION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldLugarNacimiento.getText()).length())>20){
+            JOptionPane.showMessageDialog(null, "LUGAR NACIMIENTO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldOcupacion.getText()).length())>20){
+            JOptionPane.showMessageDialog(null, "OCUPACION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldTallaPantalon.getText()).length())>8){
+            JOptionPane.showMessageDialog(null, "TALLA PANTALON EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldTallaCamisa.getText()).length())>8){
+            JOptionPane.showMessageDialog(null, "TALLA CAMISA EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldTallaZapatos.getText()).length())>8){
+            JOptionPane.showMessageDialog(null, "TALLA ZAPATOS EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
+    }
 }
 

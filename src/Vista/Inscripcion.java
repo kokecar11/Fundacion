@@ -278,7 +278,6 @@ public class Inscripcion extends javax.swing.JPanel {
     }
     private void cambiarModificarSeguir() {
         if(panel==1){
-            principal.mostrarPanelHome();
             if(verificar()){
                 String fechaInscripcion =((JTextField)jDateChooserFechaInscripcion.getDateEditor().getUiComponent()).getText();
                 boolean estado=true;
@@ -316,6 +315,7 @@ public class Inscripcion extends javax.swing.JPanel {
             principal.EliminarReubicacion(cedula);
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
 

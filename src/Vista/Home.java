@@ -197,12 +197,13 @@ public class Home extends javax.swing.JPanel {
     private void jButtonModificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificacionActionPerformed
         //principal.mostrarPanelModificar();
         Modificar modificar = new Modificar(principal);
+        modificar.cargarTabla();
         modificar.setSize(836,455);
         modificar.setLocation(5,5);
         PanelPrincipal.removeAll();
         PanelPrincipal.add(modificar);
         PanelPrincipal.revalidate();
-        PanelPrincipal.repaint();
+        PanelPrincipal.repaint();        
     }//GEN-LAST:event_jButtonModificacionActionPerformed
 
     private void jButtonObservacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservacionesActionPerformed
@@ -259,5 +260,9 @@ public class Home extends javax.swing.JPanel {
     private void CargarPreTalleres() {
         principal.mostrarPanelPreTalleres();
         principal.CargarTalleres();
+    }
+
+    private void CargarModificar() {
+       principal.CargarAlumnos();
     }
 }

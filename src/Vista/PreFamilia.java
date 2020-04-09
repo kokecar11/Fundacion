@@ -5,6 +5,7 @@
  */
 package Vista;
 import Vista.Principal;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -15,7 +16,7 @@ public class PreFamilia extends javax.swing.JPanel {
     
     public int panel=0;
     public long cedula=0;
-    
+    public int seleccionFamiliar=-1;
     /**
      * Creates new form PreFamilia
      */
@@ -55,6 +56,11 @@ public class PreFamilia extends javax.swing.JPanel {
         ));
         jTableFamilia.setFocusable(false);
         jTableFamilia.getTableHeader().setReorderingAllowed(false);
+        jTableFamilia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableFamiliaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableFamilia);
 
         jButtonSiguienteModificar.setText("1");
@@ -130,6 +136,10 @@ public class PreFamilia extends javax.swing.JPanel {
         cambiarVolver();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
+    private void jTableFamiliaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFamiliaMouseClicked
+        seleccionFamiliar= evt.getY() /jTableFamilia.getRowHeight();
+    }//GEN-LAST:event_jTableFamiliaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCrear;
@@ -156,8 +166,15 @@ public class PreFamilia extends javax.swing.JPanel {
             principal.CambioCedulaInscripcion(cedula);
             principal.CargarCursos();
         }if(panel==2){
-            principal.mostrarPanelFamilia();
-            principal.CambioFamilia(2);
+            if(seleccionFamiliar!=-1){
+                principal.mostrarPanelFamilia();
+                principal.CambioBotonFamilia(2);
+                principal.CambioFamilia(2);
+                principal.CambioCedulaFamilia(cedula);
+                principal.CargarFamiliarModificar(((String)jTableFamilia.getValueAt(seleccionFamiliar,0)),((String)jTableFamilia.getValueAt(seleccionFamiliar, 1)),cedula);
+            }else{
+                JOptionPane.showMessageDialog(this, "SELECCIONE FAMILIAR");
+            }
         }
     }
     void CambiarCedual(long cedula) {
@@ -172,6 +189,7 @@ public class PreFamilia extends javax.swing.JPanel {
             principal.CargarSalud(cedula);
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
 
@@ -197,7 +215,12 @@ public class PreFamilia extends javax.swing.JPanel {
     }
     private void CambiarFamilia(){
         principal.mostrarPanelFamilia();
-        principal.CambioFamilia(1);
+        principal.CambioBotonFamilia(1);
+        if(panel==1){
+            principal.CambioFamilia(1);
+        }if(panel==2){
+            principal.CambioFamilia(2);
+        }
         principal.CambioCedulaFamilia(cedula);
     }
     class CustomTableModel extends DefaultTableModel {

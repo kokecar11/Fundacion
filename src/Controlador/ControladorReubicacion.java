@@ -112,4 +112,20 @@ public class ControladorReubicacion {
             e.printStackTrace();
         }
     }
+
+    public boolean ModificarCedula(long identificacion, long identificacionAntigua) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE reubicacion SET alumnoid='" +identificacion+ "' WHERE alumnoid="+identificacionAntigua+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorReubicacion.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }

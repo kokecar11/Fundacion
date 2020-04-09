@@ -46,7 +46,21 @@ public class ControladorAlumno {
             return false;
         }
     }
-
+    public boolean ModificarAlumno(Alumno alumno,long identificacionAntigua) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE alumno SET identificacion='"+alumno.getIdentificacion()+"',TipoIdentificacion='"+alumno.getTipoIdentificacion()+"',nombre='"+alumno.getNombre()+"',apellido='"+alumno.getApellido()+"',FechaNacimiento='"+alumno.getFechaNacimiento()+"',LugarNacimiento='"+alumno.getLugarNacimiento()+"',Ocupacion='"+alumno.getOcupacion()+"',TallaPantalon='"+alumno.getTallaPantalon()+"',TallaZapatos='"+alumno.getTallaZapato()+"',TallaCamisa='"+alumno.getTallaCamisa()+"' WHERE identificacion='" + identificacionAntigua+ "';";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorAlumno.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     public void EliminarAlumno(long cedula) {
         try {
             Conexion conexion = new Conexion();
@@ -112,5 +126,76 @@ public class ControladorAlumno {
             return false;
         }
     }
-    
+    public boolean AlumnoExisteSin(long cedulanueva,long cedulaAntigua) {
+         try {
+            String val = "";
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String sql = "SELECT identificacion FROM alumno WHERE identificacion ='"+cedulanueva+"'";
+            Statement st = conectar.prepareStatement(sql);
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                val = rs.getString(1);
+            }
+            rs.close();
+            st.close();
+            conectar.close();
+            String cedulina= String.valueOf(cedulaAntigua);
+            if (val.equals("")) {
+                return true;
+            }else if(val.equals(cedulina)){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorAlumno.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    public static int contarNumeroAlumnos() {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String sql = "SELECT count(*) from alumno ";
+            PreparedStatement psd = conectar.prepareStatement(sql);
+            ResultSet res;
+            int nRegistros;
+            res = psd.executeQuery(sql);
+            if (res.next()) {
+                nRegistros = Integer.parseInt(res.getString(1));
+            } else {
+                nRegistros = 0;
+            }
+            conectar.close();
+            return nRegistros;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorTalleres.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    public static Object[][] CargarAlumnos() {
+        Conexion con = new Conexion();
+        Connection conexion = con.conexion();
+        int x = 0;
+        String sql = "SELECT identificacion,nombre,apellido FROM alumno ";
+        Statement st;
+        Object[][] dato = new Object[contarNumeroAlumnos()][3];
+        try {
+            st = conexion.createStatement();
+            ResultSet res = st.executeQuery(sql);
+            while (res.next()) {
+                dato[x][0] = new String(res.getString(1));
+                dato[x][1] = new String(res.getString(2));
+                dato[x][2] = new String(res.getString(3));
+                x++;
+            }
+            conexion.close();
+            return dato;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return dato;
+        }
+           
+    }
 }

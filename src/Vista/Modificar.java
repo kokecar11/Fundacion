@@ -5,6 +5,8 @@
  */
 package Vista;
 import Vista.Principal;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author david
@@ -12,6 +14,7 @@ import Vista.Principal;
 public class Modificar extends javax.swing.JPanel {
     private Principal principal;
     public int panel=0;
+    public int seleccionAlumno=-1;
     /**
      * Creates new form Modificar
      */
@@ -37,10 +40,9 @@ public class Modificar extends javax.swing.JPanel {
         jButtonSalud = new javax.swing.JButton();
         jButtonFamilia = new javax.swing.JButton();
         jButtonInscripcion = new javax.swing.JButton();
-        jTextFieldBuscar = new javax.swing.JTextField();
-        jButtonBuscar = new javax.swing.JButton();
-        jComboBoxEstudiantes = new javax.swing.JComboBox<>();
         jButtonVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableEstudiantes = new javax.swing.JTable();
 
         jLabelDatosPersonales2.setText("Datos personales");
 
@@ -98,16 +100,6 @@ public class Modificar extends javax.swing.JPanel {
         });
         add(jButtonInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 145, 40));
 
-        jTextFieldBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 190, 28));
-
-        jButtonBuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonBuscar.setText("Buscar");
-        add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
-
-        jComboBoxEstudiantes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(jComboBoxEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 190, 28));
-
         jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +108,30 @@ public class Modificar extends javax.swing.JPanel {
             }
         });
         add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
+
+        jTableEstudiantes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        jTableEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableEstudiantes.setFocusable(false);
+        jTableEstudiantes.getTableHeader().setReorderingAllowed(false);
+        jTableEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEstudiantesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableEstudiantes);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 580, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -146,9 +162,12 @@ public class Modificar extends javax.swing.JPanel {
         mostrarPanelInscripcion();
     }//GEN-LAST:event_jButtonInscripcionActionPerformed
 
+    private void jTableEstudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEstudiantesMouseClicked
+        seleccionAlumno= evt.getY() /jTableEstudiantes.getRowHeight();
+    }//GEN-LAST:event_jTableEstudiantesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonDatosPersonales;
     private javax.swing.JButton jButtonFamilia;
     private javax.swing.JButton jButtonInscripcion;
@@ -156,40 +175,95 @@ public class Modificar extends javax.swing.JPanel {
     private javax.swing.JButton jButtonSalud;
     private javax.swing.JButton jButtonUbicacionContacto;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JComboBox<String> jComboBoxEstudiantes;
     private javax.swing.JLabel jLabelDatosPersonales2;
     private javax.swing.JLabel jLabelModificar;
-    private javax.swing.JTextField jTextFieldBuscar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableEstudiantes;
     // End of variables declaration//GEN-END:variables
 
     private void mostrarPanelDatosPersonales() {
-        principal.mostrarPanelDatosPersonales();
-        principal.CambioDatosPersonales(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelDatosPersonales();
+            principal.CambioDatosPersonales(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaDatosPersonales(cedula);
+            principal.CargarAlumnoModificar(cedula);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
     }
 
     private void mostrarPanelUbicacionContacto() {
-        principal.mostrarPanelContacto();
-        principal.CambioContacto(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelContacto();
+            principal.CambioContacto(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaContacto(cedula);
+            principal.CargarContactoModificar(cedula);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
     }
 
     private void mostrarPanelPerfilAcademico() {
-        principal.mostrarPanelPerfilAcademico();
-        principal.CambioPerfilAcademico(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelPerfilAcademico();
+            principal.CambioPerfilAcademico(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaPerfilAcademico(cedula);
+            principal.CargarPerfilAcademicoModificar(cedula);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
     }
 
     private void mostrarPanelSalud() {
-        principal.mostrarPanelSalud();
-        principal.CambioSalud(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelSalud();
+            principal.CambioSalud(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaSalud(cedula);
+            principal.CargarSaludModificar(cedula);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
     }
 
     private void mostrarPanelFamilia() {
-        principal.mostrarPanelPreFamilia();
-        principal.CambioPreFamilia(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelPreFamilia();
+            principal.CambioPreFamilia(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaPreFamilia(cedula);
+            principal.CargarFamiliaSalud(cedula);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
     }
 
     private void mostrarPanelInscripcion() {
-        principal.mostrarPanelInscripcion();
-        principal.CambioInscripcion(2);
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelInscripcion();
+            principal.CambioInscripcion(2);
+        }else{
+            JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
+        }
+    }
+
+    public void cargarTabla() {
+        DefaultTableModel modeloTabla= (DefaultTableModel) jTableEstudiantes.getModel();
+        modeloTabla.addColumn("Identificacion");
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Apellido");
+        int c=principal.ObtenerNumeroAlumnos();
+        int x=0;
+        Object [][]datos=new Object[c][3];
+        datos=principal.CargarTodosAlumnos();
+        while(x<c){
+            Object row[]= {datos[x][0],datos[x][1],datos[x][2]};
+            ((DefaultTableModel)jTableEstudiantes.getModel()).addRow(row);
+            x++;
+        }
     }
 
 }

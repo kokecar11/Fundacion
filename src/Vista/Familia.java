@@ -15,7 +15,10 @@ import javax.swing.JTextField;
 public class Familia extends javax.swing.JPanel {
     private Principal principal;
     public int panel=0;
+    public int boton=0;
     public long cedula=0;
+    public String nombreActual="";
+    public String apellidoActual="";
     /**
      * Creates new form Familia
      */
@@ -198,13 +201,16 @@ public class Familia extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldTelefono;
     // End of variables declaration//GEN-END:variables
     
-    public void CambiarPanel(int cambio){
-        panel=cambio;
-        if(cambio==1){
+    public void CambiarBoton(int cambio){
+        boton=cambio;
+        if(boton==1){
             jButtonSiguienteModificar.setText("Crear");
-        }if(cambio==2){
+        }if(boton==2){
             jButtonSiguienteModificar.setText("Modificar");
         }
+    }
+    public void CambiarPanel(int cambio){
+        panel=cambio;
     }
     private void cambiarModificarSeguir() {
         if(panel==1){
@@ -213,41 +219,77 @@ public class Familia extends javax.swing.JPanel {
            principal.CambioCedulaPreFamilia(cedula);
            principal.CargarFamiliaSalud(cedula);
         }if(panel==2){
-            principal.mostrarPanelFamilia();
+            principal.mostrarPanelPreFamilia();
             principal.CambioPreFamilia(2);
             principal.CambioCedulaPreFamilia(cedula);
             principal.CargarFamiliaSalud(cedula);
         }
     }
     private void CambiarCrearModificar() {
-        if(panel==1){
+        if(boton==1){
             if(VerificarDatos()){
                 if(FamiliarExiste()){
                     if(VerificarTelefono()){
-                        String nombre = jTextFieldNombre.getText();
-                        String apellido = jTextFieldApellido.getText();
-                        int edad = Integer.parseInt(jTextFieldEdad.getText());
-                        String ocupacion = jTextFieldOcupacion.getText();
-                        long telefono=-1;
-                        if(!(jTextFieldTelefono.getText().equals(""))){
-                            telefono=Long.parseLong(jTextFieldTelefono.getText());
-                        }
-                        String situacionFamiliar = jTextAreaSituacionFamiliar.getText();
-                        if(principal.CrearFamilia(nombre,apellido,edad,ocupacion,telefono,situacionFamiliar,cedula)){
-                            principal.mostrarPanelPreFamilia();
-                            principal.CambioPreFamilia(1);
-                            principal.CambioCedulaPreFamilia(cedula);
-                            principal.CargarFamiliaSalud(cedula);
-                        }else{
-                            JOptionPane.showMessageDialog(this, "DATOS ERRONEOS");
-                        }
+                        if(VerificarCadena()){
+                            String nombre = jTextFieldNombre.getText();
+                            String apellido = jTextFieldApellido.getText();
+                            int edad = Integer.parseInt(jTextFieldEdad.getText());
+                            String ocupacion = jTextFieldOcupacion.getText();
+                            long telefono=-1;
+                            if(!(jTextFieldTelefono.getText().equals(""))){
+                                telefono=Long.parseLong(jTextFieldTelefono.getText());
+                            }
+                            String situacionFamiliar = jTextAreaSituacionFamiliar.getText();
+                            if(principal.CrearFamilia(nombre,apellido,edad,ocupacion,telefono,situacionFamiliar,cedula)){
+                                principal.mostrarPanelPreFamilia();
+                                if(panel==1){
+                                    principal.CambioPreFamilia(1);
+                                }if(panel==2){
+                                    principal.CambioPreFamilia(2);
+                                }
+                                principal.CambioCedulaPreFamilia(cedula);
+                                principal.CargarFamiliaSalud(cedula);
+                            }else{
+                                JOptionPane.showMessageDialog(this, "DATOS ERRONEOS");
+                            }
+                        }    
                     }    
                 }else{
                     JOptionPane.showMessageDialog(this, "FAMILIAR YA EXISTENTE");
                 }
             }   
-        }if(panel==2){
-            
+        }if(boton==2){
+            if(VerificarDatos()){
+                if(FamiliarExisteSin()){
+                    if(VerificarTelefono()){
+                        if(VerificarCadena()){
+                            String nombre = jTextFieldNombre.getText();
+                            String apellido = jTextFieldApellido.getText();
+                            int edad = Integer.parseInt(jTextFieldEdad.getText());
+                            String ocupacion = jTextFieldOcupacion.getText();
+                            long telefono=-1;
+                            if(!(jTextFieldTelefono.getText().equals(""))){
+                                telefono=Long.parseLong(jTextFieldTelefono.getText());
+                            }
+                            String situacionFamiliar = jTextAreaSituacionFamiliar.getText();
+                            if(principal.ModificarFamilia(nombre,apellido,edad,ocupacion,telefono,situacionFamiliar,cedula,nombreActual,apellidoActual)){
+                                principal.mostrarPanelPreFamilia();
+                                if(panel==1){
+                                    principal.CambioPreFamilia(1);
+                                }if(panel==2){
+                                    principal.CambioPreFamilia(2);
+                                }
+                                principal.CambioCedulaPreFamilia(cedula);
+                                principal.CargarFamiliaSalud(cedula);
+                            }else{
+                                JOptionPane.showMessageDialog(this, "DATOS ERRONEOS");
+                            }
+                        }    
+                    }    
+                }else{
+                    JOptionPane.showMessageDialog(this, "FAMILIAR YA EXISTENTE");
+                }
+            }   
         }
     }
     void CambiarCedual(long cedula) {
@@ -291,5 +333,45 @@ public class Familia extends javax.swing.JPanel {
             }
         }
         return true;    
+    }
+
+    private boolean VerificarCadena() {
+        if(((jTextFieldNombre.getText()).length())>25){
+            JOptionPane.showMessageDialog(null, "NOMBRE EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldApellido.getText()).length())>25){
+            JOptionPane.showMessageDialog(null, "APELLIDO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldEdad.getText()).length())>3){
+            JOptionPane.showMessageDialog(null, "EDAD EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldTelefono.getText()).length())>15){
+            JOptionPane.showMessageDialog(null, "TELEFONO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldOcupacion.getText()).length())>20){
+            JOptionPane.showMessageDialog(null, "OCUPACION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaSituacionFamiliar.getText()).length())>295){
+            JOptionPane.showMessageDialog(null, "SITUACION FAMILIAR EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
+    }
+
+    void CargarFamiliarModificar(String[] DatosFamiliar) {
+        jTextFieldNombre.setText(DatosFamiliar[0]);
+        nombreActual=DatosFamiliar[0];
+        jTextFieldApellido.setText(DatosFamiliar[1]);
+        apellidoActual=DatosFamiliar[1];
+        jTextFieldEdad.setText(DatosFamiliar[2]);
+        jTextFieldOcupacion.setText(DatosFamiliar[3]);
+        if((Long.parseLong(DatosFamiliar[4]))!=-1){
+            jTextFieldTelefono.setText(DatosFamiliar[4]);
+        }
+        jTextAreaSituacionFamiliar.setText(DatosFamiliar[5]);
+    }
+
+    private boolean FamiliarExisteSin() {
+        return principal.FamiliarExisteSin(jTextFieldNombre.getText(),jTextFieldApellido.getText(),nombreActual,apellidoActual,cedula);
     }
 }

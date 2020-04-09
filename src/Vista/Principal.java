@@ -297,6 +297,9 @@ public class Principal extends javax.swing.JFrame {
     public void CambioPreFamilia(int cambio){
         preFamilia.CambiarPanel(cambio);
     }
+    public void CambioBotonFamilia(int cambio){
+        familia.CambiarBoton(cambio);
+    }
     public void CambioFamilia(int cambio){
         familia.CambiarPanel(cambio);
     }
@@ -339,6 +342,9 @@ public class Principal extends javax.swing.JFrame {
     public void CargarTalleres(){
         pretalleres.cargarTabla();
     }
+    public void CargarAlumnos(){
+        modificar.cargarTabla();
+    }
     public void CargarCursos() {
         inscripcion.CargarCursos();
     }
@@ -355,7 +361,17 @@ public class Principal extends javax.swing.JFrame {
         Alumno alumno = new Alumno(identificacion,tipoIdentificacion ,nombre, apellido,fechaNacimiento, lugarNacimiento, ocupacion, tallaPantalon, tallaZapatos, tallaCamisa);
         return controladorAlumno.CrearAlumno(alumno);
     }
-
+    boolean ModificarAlumno(long identificacion, String tipoIdentificacion, String nombre, String apellido, String fechaNacimiento, String lugarNacimiento, String ocupacion, String tallaZapatos, String tallaPantalon, String tallaCamisa,long identificacionAntigua) {
+        Alumno alumno = new Alumno(identificacion,tipoIdentificacion ,nombre, apellido,fechaNacimiento, lugarNacimiento, ocupacion, tallaPantalon, tallaZapatos, tallaCamisa);
+        controladorContacto.ModificarCedula(identificacion,identificacionAntigua);
+        controladorPerfilAcademico.ModificarCedula(identificacion,identificacionAntigua);
+        controladorSalud.ModificarCedula(identificacion,identificacionAntigua);
+        controladorFamilia.ModificarCedula(identificacion,identificacionAntigua);
+        controladorInscripcion.ModificarCedula(identificacion,identificacionAntigua);
+        controladorReubicacion.ModificarCedula(identificacion,identificacionAntigua);
+        controladorTalleres.ModificarCedula(identificacion,identificacionAntigua);
+        return controladorAlumno.ModificarAlumno(alumno,identificacionAntigua);
+    }
     void EliminarAlumno(long cedula) {
         controladorAlumno.EliminarAlumno(cedula);
     }
@@ -380,14 +396,29 @@ public class Principal extends javax.swing.JFrame {
     void CargarAlumno(long cedula) {
         datosPersonales.CargarAlumno(controladorAlumno.DatosAlumno(cedula));
     }
+    void CargarAlumnoModificar(long cedula) {
+        datosPersonales.CargarAlumnoModificar(controladorAlumno.DatosAlumno(cedula));
+    }
     void CargarContacto(long cedula) {
         contacto.CargarContacto(controladorContacto.DatosContacto(cedula));
+    }
+    void CargarContactoModificar(long cedula) {
+        contacto.CargarContactoModificar(controladorContacto.DatosContacto(cedula));
     }
     void CargarPerfilAcademico(long cedula) {
         perfilAcademico.CargarPerfilAcademico(controladorPerfilAcademico.DatosPerfilAcademico(cedula));
     }
+    void CargarPerfilAcademicoModificar(long cedula) {
+        perfilAcademico.CargarPerfilAcademicoModificar(controladorPerfilAcademico.DatosPerfilAcademico(cedula));
+    }
     void CargarSalud(long cedula) {
         salud.CargarSalud(controladorSalud.DatosSalud(cedula));
+    }
+    void CargarSaludModificar(long cedula) {
+        salud.CargarSaludModificar(controladorSalud.DatosSalud(cedula));
+    }
+    void CargarFamiliarModificar(String nombre,String apellido, long cedula) {
+        familia.CargarFamiliarModificar(controladorFamilia.DatosFamiliar(nombre,apellido,cedula));
     }
     void CargarTaller(String nombre) {
         talleres.CargarTaller(controladorTalleres.DatosTaller(nombre));
@@ -398,8 +429,14 @@ public class Principal extends javax.swing.JFrame {
     boolean AlumnoExiste(long cedula) {
         return controladorAlumno.AlumnoExiste(cedula);
     }
+    boolean AlumnoExisteSin(long cedulanueva,long cedulaAntigua) {
+        return controladorAlumno.AlumnoExisteSin(cedulanueva,cedulaAntigua);
+    }
     boolean FamiliarExiste(String nombre, String apellido,long cedula) {
         return controladorFamilia.FamiliarExiste(nombre,apellido,cedula);
+    }
+    boolean FamiliarExisteSin(String nombreNuevo, String apellidoNuevo,String nombreActual,String apellidoActual,long cedula) {
+        return controladorFamilia.FamiliarExisteSin(nombreNuevo,apellidoNuevo,nombreActual,apellidoActual,cedula);
     }
     boolean TallerExiste(String nombre) {
         return controladorTalleres.TallerExiste(nombre);
@@ -414,6 +451,10 @@ public class Principal extends javax.swing.JFrame {
         Contactos contactos = new Contactos(direccion,localidad,estrato,fijo,celular,tipoVivienda,cedula);
         return controladorContacto.CrearContacto(contactos);
     }
+    boolean ModificarContacto(long cedula, String direccion, int estrato, String localidad, String tipoVivienda, long fijo, long celular) {
+        Contactos contactos = new Contactos(direccion,localidad,estrato,fijo,celular,tipoVivienda,cedula);
+        return controladorContacto.ModificarContacto(contactos);
+    }
     boolean CrearTaller(String nombre,boolean estado,int cupos,String descripcion) {
         Tallere tallere = new Tallere(nombre,descripcion,estado,cupos);
         return controladorTalleres.CrearTaller(tallere);
@@ -423,14 +464,25 @@ public class Principal extends javax.swing.JFrame {
         PerfilAcademicos perfilAcademicos = new PerfilAcademicos(nivelEscolar, grado, institucionEducativa, cedula);
         return controladorPerfilAcademico.CrearPerfilAcademico(perfilAcademicos);
     }
-
+    boolean ModificarPerfilAcademico(String institucionEducativa, String nivelEscolar, String grado,long cedula) {
+        PerfilAcademicos perfilAcademicos = new PerfilAcademicos(nivelEscolar, grado, institucionEducativa, cedula);
+        return controladorPerfilAcademico.ModificarPerfilAcademico(perfilAcademicos);
+    }
     boolean CrearSalud(String afiliacionSalud, String grupoSanguineo, String rH, String diagnostico, String medicamentos, String recomendaciones, long cedula) {
         Saluds saluds = new Saluds(afiliacionSalud, grupoSanguineo, rH, diagnostico, medicamentos, recomendaciones, cedula);
         return controladorSalud.CrearSalud(saluds);
     }
+    boolean ModificarSalud(String afiliacionSalud, String grupoSanguineo, String rH, String diagnostico, String medicamentos, String recomendaciones, long cedula) {
+        Saluds saluds = new Saluds(afiliacionSalud, grupoSanguineo, rH, diagnostico, medicamentos, recomendaciones, cedula);
+        return controladorSalud.ModificarSalud(saluds);
+    }
     boolean CrearFamilia(String nombre, String apellido, int edad, String ocupacion, long telefono, String situacionFamiliar, long cedula) {
         Familias familias = new Familias(nombre, apellido,edad, ocupacion, telefono, situacionFamiliar, cedula);
         return controladorFamilia.CrearFamilia(familias);
+    }
+    boolean ModificarFamilia(String nombre, String apellido, int edad, String ocupacion, long telefono, String situacionFamiliar, long cedula,String nombreactual,String apellidoactual) {
+        Familias familias = new Familias(nombre, apellido,edad, ocupacion, telefono, situacionFamiliar, cedula);
+        return controladorFamilia.ModificarFamilia(familias,nombreactual,apellidoactual);
     }
     boolean CrearReubicacion(String ubicacion, String Descripcion, long cedula) {
         Reubicaciones reubicacion = new Reubicaciones(ubicacion, Descripcion, cedula);
@@ -459,11 +511,17 @@ public class Principal extends javax.swing.JFrame {
     int ObtenerNumeroInscritosTalleres(String taller) {
         return controladorTalleres.ContarNumeroInscritosTalleres(taller);
     }
+    int ObtenerNumeroAlumnos() {
+        return controladorAlumno.contarNumeroAlumnos();
+    }
     public Object[][] CargarFamiliaAlumno(long cedula) {
         return controladorFamilia.CargarFamiliaAlumno(cedula);
     }
     public Object[][] CargarTallere() {
         return controladorTalleres.CargarTalleres();
+    }
+    public Object[][] CargarTodosAlumnos() {
+        return controladorAlumno.CargarAlumnos();
     }
     String[] CargarNombreTallere() {
         return controladorTalleres.CargarNombreTalleres();
@@ -480,7 +538,6 @@ public class Principal extends javax.swing.JFrame {
         return controladorTalleres.ModificarTaller(tallere,taller);
         
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

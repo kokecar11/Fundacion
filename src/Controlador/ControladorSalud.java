@@ -43,6 +43,21 @@ public class ControladorSalud {
             return false;
         }
     }
+    public boolean ModificarSalud(Saluds saluds) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE Salud SET Convenio='"+saluds.getConvenio()+"',GrupoSanguineo='"+saluds.getGrupoSanguineo()+"',RH='"+saluds.getRH()+"',Diagnostico='"+saluds.getDiagnostico()+"',Medicamentos='"+saluds.getMedicamentos()+"',Recomendaciones='"+saluds.getRecomendaciones()+"' WHERE AlumnoID="+saluds.getAlumnoID()+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorSalud.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
     public String[] DatosSalud(long cedula) {
         Conexion con = new Conexion();
         Connection conexion = con.conexion();
@@ -76,6 +91,22 @@ public class ControladorSalud {
             conectar.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean ModificarCedula(long identificacion, long identificacionAntigua) {
+        try {
+            Conexion conexion = new Conexion();
+            Connection conectar = conexion.conexion();
+            String query = "UPDATE Salud SET alumnoid='" +identificacion+ "' WHERE alumnoid="+identificacionAntigua+";";
+            Statement st = conectar.createStatement();
+            st.executeUpdate(query);
+            st.close();
+            conectar.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ControladorSalud.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
 }

@@ -230,41 +230,67 @@ public class Contacto extends javax.swing.JPanel {
         if(panel==1){
             if(VerificarDatos()){
                 if(VerificarTelefonos()){
-                    String direccion=jTextFieldDireccion.getText();
-                    int estrato=Integer.parseInt((String) jComboBoxEstrato.getSelectedItem());
-                    String localidad=(String) jComboBoxLocalidad.getSelectedItem();
-                    String tipoVivienda=(String) jComboBoxTipoVivienda.getSelectedItem();
-                    long fijo=-1;
-                    if(!(jTextFieldNumeroFijo.getText().equals(""))){
-                        fijo=Long.parseLong(jTextFieldNumeroFijo.getText());
-                    }
-                    long celular=-1;
-                    if(!(jTextFieldCelular.getText().equals(""))){
-                        celular=Long.parseLong(jTextFieldCelular.getText());
-                    }
-                    if(principal.CrearContacto(cedula,direccion,estrato,localidad,tipoVivienda,fijo,celular)){
-                        principal.mostrarPanelPerfilAcademico();
-                        principal.CambioPerfilAcademico(1);
-                        principal.CambioCedulaPerfilAcademico(cedula);
-                    }else{
-                       JOptionPane.showMessageDialog(this, "DATOS ERRONEOS"); 
-                    }
+                    if(VerificarCadenas()){
+                        String direccion=jTextFieldDireccion.getText();
+                        int estrato=Integer.parseInt((String) jComboBoxEstrato.getSelectedItem());
+                        String localidad=(String) jComboBoxLocalidad.getSelectedItem();
+                        String tipoVivienda=(String) jComboBoxTipoVivienda.getSelectedItem();
+                        long fijo=-1;
+                        if(!(jTextFieldNumeroFijo.getText().equals(""))){
+                            fijo=Long.parseLong(jTextFieldNumeroFijo.getText());
+                        }
+                        long celular=-1;
+                        if(!(jTextFieldCelular.getText().equals(""))){
+                            celular=Long.parseLong(jTextFieldCelular.getText());
+                        }
+                        if(principal.CrearContacto(cedula,direccion,estrato,localidad,tipoVivienda,fijo,celular)){
+                            principal.mostrarPanelPerfilAcademico();
+                            principal.CambioPerfilAcademico(1);
+                            principal.CambioCedulaPerfilAcademico(cedula);
+                        }else{
+                           JOptionPane.showMessageDialog(this, "DATOS ERRONEOS"); 
+                        }
+                    }    
                 }    
             }
         }if(panel==2){
-            
+            if(VerificarDatos()){
+                if(VerificarTelefonos()){
+                    if(VerificarCadenas()){
+                        String direccion=jTextFieldDireccion.getText();
+                        int estrato=Integer.parseInt((String) jComboBoxEstrato.getSelectedItem());
+                        String localidad=(String) jComboBoxLocalidad.getSelectedItem();
+                        String tipoVivienda=(String) jComboBoxTipoVivienda.getSelectedItem();
+                        long fijo=-1;
+                        if(!(jTextFieldNumeroFijo.getText().equals(""))){
+                            fijo=Long.parseLong(jTextFieldNumeroFijo.getText());
+                        }
+                        long celular=-1;
+                        if(!(jTextFieldCelular.getText().equals(""))){
+                            celular=Long.parseLong(jTextFieldCelular.getText());
+                        }
+                        if(principal.ModificarContacto(cedula,direccion,estrato,localidad,tipoVivienda,fijo,celular)){
+                            principal.mostrarPanelModificar();
+                            principal.CargarAlumnos();
+                        }else{
+                           JOptionPane.showMessageDialog(this, "DATOS ERRONEOS"); 
+                        }
+                    }    
+                }    
+            }
         }
     }
 
     private void cambiarVolver() {
         if(panel==1){
-            principal.mostrarPanelHome();
-            //principal.mostrarPanelDatosPersonales();
+            //principal.mostrarPanelHome();
+            principal.mostrarPanelDatosPersonales();
             principal.CambioDatosPersonales(1);
             principal.CambioCedulaDatosPersonales(cedula);
             principal.CargarAlumno(cedula);
         }if(panel==2){
             principal.mostrarPanelModificar();
+            principal.CargarAlumnos();
         }
     }
 
@@ -339,7 +365,22 @@ public class Contacto extends javax.swing.JPanel {
         jComboBoxTipoVivienda.setSelectedIndex(TipoVivienda(DatosContacto[5]));
         principal.EliminarContacto(cedula);
     }
-
+     void CargarContactoModificar(String[] DatosContacto) {
+        jTextFieldDireccion.setText(DatosContacto[0]);
+        jComboBoxLocalidad.setSelectedIndex(TipoLocalidad(DatosContacto[1]));
+        jComboBoxEstrato.setSelectedIndex((Integer.parseInt(DatosContacto[2]))+1);;
+        if(!(DatosContacto[3].equals("-1"))){
+            jTextFieldNumeroFijo.setText(DatosContacto[3]);
+        }else{
+            jTextFieldNumeroFijo.setText("");
+        }
+        if(!(DatosContacto[4].equals("-1"))){
+            jTextFieldCelular.setText(DatosContacto[4]);
+        }else{
+            jTextFieldCelular.setText("");
+        }
+        jComboBoxTipoVivienda.setSelectedIndex(TipoVivienda(DatosContacto[5]));
+    }
     private int TipoLocalidad(String localidad) {
         if(localidad.equals("no aplica")){
             return 1;
@@ -396,5 +437,19 @@ public class Contacto extends javax.swing.JPanel {
             return 2;
         }
         return 0;
+    }
+
+    private boolean VerificarCadenas() {
+        if(((jTextFieldDireccion.getText()).length())>43){
+            JOptionPane.showMessageDialog(null, "DIRECCION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldCelular.getText()).length())>15){
+            JOptionPane.showMessageDialog(null, "CELULAR EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextFieldNumeroFijo.getText()).length())>15){
+            JOptionPane.showMessageDialog(null, "NUMERO FIJO EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
     }
 }

@@ -27,7 +27,7 @@ public class Conexion {
     public Connection conexion(){
        try {
            Class.forName("com.mysql.jdbc.Driver");
-           conectar=DriverManager.getConnection("jdbc:mysql://localhost/fundacion?useSSL=false","root","");
+           conectar=DriverManager.getConnection("jdbc:mysql://localhost/fundacion?useSSL=false","root","root");
        } catch (ClassNotFoundException | SQLException ex) {
            
            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

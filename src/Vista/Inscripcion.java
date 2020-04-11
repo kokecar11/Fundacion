@@ -5,6 +5,11 @@
  */
 package Vista;
 import Vista.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -17,9 +22,10 @@ public class Inscripcion extends javax.swing.JPanel {
     private Principal principal;
     public int panel=0;
     public long cedula=0;
-    public String []cursos; 
+    public String []cursosInscritos; 
     public int Numerocursos=0;
     public int seleccionCurso=-1;
+    
     /**
      * Creates new form Inscripcion
      */
@@ -29,7 +35,6 @@ public class Inscripcion extends javax.swing.JPanel {
         CargarComboBox();
         DefaultTableModel modeloTabla= (DefaultTableModel) jTableCursos.getModel();
         modeloTabla.addColumn("Cursos");
-        cursos=new String[principal.ObtenerNumeroTalleresActivos()];
     }
 
     /**
@@ -63,9 +68,9 @@ public class Inscripcion extends javax.swing.JPanel {
 
         jLabelEstado.setText("Estado");
 
-        jComboBoxEstado.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxEstadoItemStateChanged(evt);
+        jComboBoxEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEstadoActionPerformed(evt);
             }
         });
 
@@ -236,13 +241,13 @@ public class Inscripcion extends javax.swing.JPanel {
         seleccionCurso= evt.getY() /jTableCursos.getRowHeight();         
     }//GEN-LAST:event_CursosMouseClicked
 
-    private void jComboBoxEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEstadoItemStateChanged
-        EventoComboBox();
-    }//GEN-LAST:event_jComboBoxEstadoItemStateChanged
-
     private void jButtonInactividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInactividadActionPerformed
         CambiarReubicacion();
     }//GEN-LAST:event_jButtonInactividadActionPerformed
+
+    private void jComboBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadoActionPerformed
+        EventoComboBox();
+    }//GEN-LAST:event_jComboBoxEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -272,6 +277,9 @@ public class Inscripcion extends javax.swing.JPanel {
         if(cambio==1){
             jButtonSiguienteModificar.setText("Finalizar");
             jButtonInactividad.setVisible(false);
+            jButtonAgregar.setEnabled(false);
+            jButtonQuitar.setEnabled(false);
+            jComboBoxCursos.setEnabled(false);
         }if(cambio==2){
             jButtonSiguienteModificar.setText("Modificar");
         }
@@ -281,26 +289,47 @@ public class Inscripcion extends javax.swing.JPanel {
             if(verificar()){
                 String fechaInscripcion =((JTextField)jDateChooserFechaInscripcion.getDateEditor().getUiComponent()).getText();
                 boolean estado=true;
-                    if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
-                        estado=true;
-                    }else{
+                if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
+                    estado=true;
+                }else{
                     estado=false;
                 }
-                if(Numerocursos>0){
-                    String []cursos = new String[Numerocursos];
-                    for(int i=0;i<Numerocursos;i++){
-                        cursos[i]=(String) jTableCursos.getValueAt(i, 0);
-                    }
-                    principal.CrearInscripcionTalleres(cursos,cedula);
-                }
                 if(principal.CrearInscripcion(fechaInscripcion,estado,cedula)){
+                    if(Numerocursos>0){
+                        String []cursos = new String[Numerocursos];
+                        for(int i=0;i<Numerocursos;i++){
+                            cursos[i]=(String) jTableCursos.getValueAt(i, 0);
+                        }   
+                        principal.CrearInscripcionTalleres(cursos,cedula);
+                    }
                     principal.mostrarPanelHome();
                 }else{
                     JOptionPane.showMessageDialog(null, "INSCRIPCION FALLIDA");
                 }
             }
         }if(panel==2){
-            
+            if(verificar()){
+                String fechaInscripcion =((JTextField)jDateChooserFechaInscripcion.getDateEditor().getUiComponent()).getText();
+                boolean estado=true;
+                if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
+                    estado=true;
+                }else{
+                    estado=false;
+                }
+                if(principal.ModificarInscripcion(fechaInscripcion,estado,cedula)){
+                    if(estado){
+                        String []cursos = new String[Numerocursos];
+                        for(int i=0;i<Numerocursos;i++){
+                            cursos[i]=(String) jTableCursos.getValueAt(i, 0);
+                        }   
+                        principal.ModificarInscripcionTalleres(cursos,cedula);
+                    }
+                    principal.mostrarPanelModificar();
+                    principal.CargarAlumnos();
+                }else{
+                    JOptionPane.showMessageDialog(null, "MODIFICACION FALLIDA");
+                }
+            }
         }
     }
     void CambiarCedual(long cedula) {
@@ -314,13 +343,23 @@ public class Inscripcion extends javax.swing.JPanel {
             principal.CargarFamiliaSalud(cedula);
             principal.EliminarReubicacion(cedula);
         }if(panel==2){
+            for(int i=0;i<cursosInscritos.length;i++){
+                if(principal.ConsultarInscripcionTallerPersona(cursosInscritos[i],cedula)){
+                    principal.CrearInscripcionTaller(cursosInscritos[i],cedula);
+                }
+            }
+            if(principal.ReubicacionExisteHistorial(cedula)){
+                if(!principal.ReubicacionExiste(cedula)){
+                    principal.EliminarReubicacion(cedula);
+                }
+            }
             principal.mostrarPanelModificar();
             principal.CargarAlumnos();
         }
     }
 
     public void CargarCursos() {
-        int c=principal.ObtenerNumeroTalleresActivos()+1;
+        int c=principal.ObtenerNumeroTalleresActivosConCupos()+1;
         String []datos=new String[c+1];
         datos=principal.CargarNombreTallere();
         for(int i=0;i<c;i++){
@@ -346,11 +385,9 @@ public class Inscripcion extends javax.swing.JPanel {
     }
 
     private void ModificarComboBox(String dato) {
-        
-        cursos[Numerocursos]=dato;
         int i=0;
         int x=0;
-        while(i<=(principal.ObtenerNumeroTalleresActivos())-Numerocursos){
+        while(i<=(principal.ObtenerNumeroTalleresActivosConCupos())-Numerocursos){
             if(((String) jComboBoxCursos.getItemAt(i)).equals(dato)){
                 x=i;
             }
@@ -364,6 +401,13 @@ public class Inscripcion extends javax.swing.JPanel {
         if(seleccionCurso != -1){
             jComboBoxCursos.addItem((String) jTableCursos.getValueAt(seleccionCurso, 0));
             Numerocursos--;
+            if(panel==2){
+                for(int j=0;j<cursosInscritos.length;j++){
+                    if(((String)jTableCursos.getValueAt(seleccionCurso, 0)).equals(cursosInscritos[j])){
+                        principal.EliminarInscripcionTallerAlumno(cursosInscritos[j],cedula);
+                    }
+                }
+            }
             ((DefaultTableModel)jTableCursos.getModel()).removeRow(seleccionCurso);
             seleccionCurso=-1;
         }else{
@@ -373,54 +417,124 @@ public class Inscripcion extends javax.swing.JPanel {
 
     private void EventoComboBox() {
         if(((String) jComboBoxEstado.getSelectedItem()).equals("Inactivo")){
-            jButtonInactividad.setEnabled(true);
-            jButtonInactividad.setVisible(true);
-        }else{
-            if(!principal.ReubicacionExiste(cedula)){
+            if(Numerocursos==0){
+                jButtonInactividad.setEnabled(true);
+                jButtonInactividad.setVisible(true);
+                jButtonAgregar.setEnabled(false);
+                jButtonQuitar.setEnabled(false);
+                jComboBoxCursos.setEnabled(false);
+            }else{
+                int valor =JOptionPane.showConfirmDialog(this, "quiere eliminar todos los cursos","Confirmar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                if(valor==JOptionPane.YES_OPTION){
+                    for(int i=0;i<(principal.ObtenerNumeroTalleresActivosConCupos()+1)-Numerocursos;i++){
+                        jComboBoxCursos.removeItemAt(0);
+                    }
+                    CargarCursos();
+                    for(int i=0;i<Numerocursos;i++){
+                        if(panel==2){
+                            for(int j=0;j<cursosInscritos.length;j++){
+                                if(((String)jTableCursos.getValueAt(0, 0)).equals(cursosInscritos[j])){
+                                    principal.EliminarInscripcionTallerAlumno(cursosInscritos[j],cedula);
+                                }
+                            }
+                            
+                        }
+                        ((DefaultTableModel)jTableCursos.getModel()).removeRow(0);
+                    }  
+                    Numerocursos=0;
+                    jButtonInactividad.setEnabled(true);
+                    jButtonInactividad.setVisible(true);
+                    jButtonAgregar.setEnabled(false);
+                    jButtonQuitar.setEnabled(false);
+                    jComboBoxCursos.setEnabled(false);
+                }else{
+                    jComboBoxEstado.setSelectedIndex(1); 
+                }
+            }
+        }else if(((String) jComboBoxEstado.getSelectedItem()).equals("Activo")){
+            if((!principal.ReubicacionExiste(cedula))){
                 int valor =JOptionPane.showConfirmDialog(this, "quiere eliminar el registro de inactividad","Confirmar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 if(valor==JOptionPane.YES_OPTION){
                     jButtonInactividad.setEnabled(false);
                     jButtonInactividad.setVisible(false);
+                    jButtonAgregar.setEnabled(true);
+                    jButtonQuitar.setEnabled(true);
+                    jComboBoxCursos.setEnabled(true);
                     principal.EliminarReubicacion(cedula);
+                }else{
+                   jComboBoxEstado.setSelectedIndex(2); 
                 }    
             }else{
                 jButtonInactividad.setEnabled(false);
                 jButtonInactividad.setVisible(false);
+                jButtonAgregar.setEnabled(true);
+                jButtonQuitar.setEnabled(true);
+                jComboBoxCursos.setEnabled(true);
+            }
+        }else{
+            if(Numerocursos!=0||(!principal.ReubicacionExiste(cedula))){
+                if(Numerocursos!=0){
+                    int valor =JOptionPane.showConfirmDialog(this, "quiere eliminar todos los cursos","Confirmar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                    if(valor==JOptionPane.YES_OPTION){
+                        for(int i=0;i<(principal.ObtenerNumeroTalleresActivosConCupos()+1)-Numerocursos;i++){
+                            jComboBoxCursos.removeItemAt(0);
+                        }
+                        CargarCursos();
+                        for(int i=0;i<Numerocursos;i++){
+                            if(panel==2){
+                                for(int j=0;j<cursosInscritos.length;j++){
+                                    if(((String)jTableCursos.getValueAt(0, 0)).equals(cursosInscritos[j])){
+                                        principal.EliminarInscripcionTallerAlumno(cursosInscritos[j],cedula);
+                                    }
+                                }
+                            }
+                            ((DefaultTableModel)jTableCursos.getModel()).removeRow(0);
+                        }  
+                        Numerocursos=0;
+                        jButtonInactividad.setEnabled(false);
+                        jButtonInactividad.setVisible(false);
+                        jButtonAgregar.setEnabled(false);
+                        jButtonQuitar.setEnabled(false);
+                        jComboBoxCursos.setEnabled(false);
+                    }else{
+                        jComboBoxEstado.setSelectedIndex(1); 
+                    }
+                }else{
+                    int valor =JOptionPane.showConfirmDialog(this, "quiere eliminar el registro de inactividad","Confirmar",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                    if(valor==JOptionPane.YES_OPTION){
+                        jButtonInactividad.setEnabled(false);
+                        jButtonInactividad.setVisible(false);
+                        jButtonAgregar.setEnabled(false);
+                        jButtonQuitar.setEnabled(false);
+                        jComboBoxCursos.setEnabled(false);
+                        principal.EliminarReubicacion(cedula);
+                    }else{
+                       jComboBoxEstado.setSelectedIndex(2); 
+                    }
+                }
+            }else{
+                jButtonInactividad.setEnabled(false);
+                jButtonInactividad.setVisible(false);
+                jButtonAgregar.setEnabled(false);
+                jButtonQuitar.setEnabled(false);
+                jComboBoxCursos.setEnabled(false);
             }    
         }
     }
 
     private void CambiarReubicacion() {
         principal.mostrarPanelReubicacion();
-        principal.CambioReubicacion(panel,cedula,cursos,Numerocursos);
+        principal.CambioReubicacion(panel,cedula);
         principal.CargarReubicacion(cedula);
+        if(panel==2){
+            principal.GuardarCursosAlumno(cursosInscritos);
+        }
     }
-
-    void CambioCursosReubicacion(String[] cursos, int Numerocursos) {
-        this.cursos=cursos;
-        this.Numerocursos=Numerocursos;
-    }
-
     void CargarCambiosInscripcion() {
         jComboBoxEstado.setSelectedIndex(2);
         jButtonInactividad.setVisible(true);
+        jButtonInactividad.setEnabled(true);
         CargarCursos();
-        for(int i =0;i<Numerocursos;i++){
-            Object row[]= {cursos[i]};
-            ((DefaultTableModel)jTableCursos.getModel()).addRow(row);
-            int j=0;
-            int x=0;
-            int p=jComboBoxCursos.getItemCount();
-            while(j<p){
-                if(((String) jComboBoxCursos.getItemAt(j)).equals(cursos[i])){
-                    x=j;
-                }
-                j++;
-            }
-            jComboBoxCursos.removeItemAt(x);
-            
-        }
-        jComboBoxCursos.setSelectedIndex(0);
     }
 
     private boolean verificar() {
@@ -433,4 +547,80 @@ public class Inscripcion extends javax.swing.JPanel {
         }
         return true;
     }
+
+    void CargarInscripcion(String[] DatosInscripcion) {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date = null;
+        try {
+            date = formatter.parse(DatosInscripcion[0]);
+        } catch (ParseException ex) {
+            Logger.getLogger(Inscripcion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jDateChooserFechaInscripcion.setDate(date);
+        if(DatosInscripcion[1].equals("1")){
+            jComboBoxEstado.setSelectedIndex(1);
+            jButtonInactividad.setVisible(false);
+            jButtonInactividad.setEnabled(false);
+            jButtonAgregar.setEnabled(true);
+            jButtonQuitar.setEnabled(true);
+            jComboBoxCursos.setEnabled(true);
+            Numerocursos=principal.NumeroTalleresInscritoAlumno(cedula);
+            if(Numerocursos!=0){
+                String []Inscripcion= new String[Numerocursos];
+                cursosInscritos=new String[Numerocursos];
+                Inscripcion=principal.ConsularInscripcionTalleresAlumno(cedula);
+                cursosInscritos=Inscripcion;
+                CargarCursos();
+                for(int i =0;i<Numerocursos;i++){
+                    Object row[]= {Inscripcion[i]};
+                    ((DefaultTableModel)jTableCursos.getModel()).addRow(row);
+                    int j=0;
+                    int x=0;
+                    int p=jComboBoxCursos.getItemCount();
+                    while(j<p){
+                        if(((String) jComboBoxCursos.getItemAt(j)).equals(Inscripcion[i])){
+                            x=j;
+                        }
+                        j++;
+                    }
+                    if(x!=0){
+                        jComboBoxCursos.removeItemAt(x);
+                    }
+                    
+                }
+            }else{
+                CargarCursos();
+                cursosInscritos=new String[0];
+            }
+            
+        }else{
+            cursosInscritos=new String[0];
+            jComboBoxEstado.setSelectedIndex(2); 
+            jButtonInactividad.setEnabled(true);
+            jButtonInactividad.setVisible(true);
+            jButtonAgregar.setEnabled(false);
+            jButtonQuitar.setEnabled(false);
+            jComboBoxCursos.setEnabled(false);
+            CargarCursos();
+        }
+        
+    }
+
+    private void CargarTodosCursosActivos() {
+        int c=principal.ObtenerNumeroTalleresActivos()+1;
+        String []datos=new String[c+1];
+        datos=principal.CargarNombreTalleres();
+        for(int i=0;i<c;i++){
+            jComboBoxCursos.addItem(datos[i]);
+        }
+    }
+
+    void GuardarInscripcionAlumno(String[] cursosDeReubicacion) {
+        cursosInscritos=cursosDeReubicacion;
+    }
+
+    private void cargarCombo() {
+        
+    }
+
 }

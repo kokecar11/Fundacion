@@ -245,6 +245,9 @@ public class Modificar extends javax.swing.JPanel {
         if(seleccionAlumno!=-1){
             principal.mostrarPanelInscripcion();
             principal.CambioInscripcion(2);
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            principal.CambioCedulaInscripcion(cedula);
+            principal.CargarInscripcion(cedula);
         }else{
             JOptionPane.showMessageDialog(this, "SELECCIONAR ALUMNO");
         }

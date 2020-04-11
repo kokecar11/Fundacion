@@ -14,15 +14,13 @@ public class Reubicacion extends javax.swing.JPanel {
     private Principal principal;
     public int panel=0;
     public long cedula=0;
-    public String []cursos; 
-    public int Numerocursos=0;
+    public String []cursos;
     /**
      * Creates new form Reubicacion
      */
     public Reubicacion(Principal principal) {
         this.principal=principal;
         initComponents();
-        cursos=new String[principal.ObtenerNumeroTalleresActivos()];
         jTextAreaDescripcion.setLineWrap(true);
         jTextAreaDescripcion.setWrapStyleWord(true);
     }
@@ -141,19 +139,19 @@ public class Reubicacion extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldUbicacion;
     // End of variables declaration//GEN-END:variables
 
-    void CambioReubicacion(int panel, long cedula, String[] cursos, int Numerocursos) {
+    void CambioReubicacion(int panel, long cedula) {
         this.panel =panel;
         this.cedula = cedula;
-        this.cursos = cursos;
-        this.Numerocursos = Numerocursos;
     }
 
     private void CambiarInscripcion() {
         principal.mostrarPanelInscripcion();
         principal.CambioCedulaInscripcion(cedula);
         principal.CambioInscripcion(panel);
-        principal.CambioCursos(cursos,Numerocursos);
         principal.CargarCambiosInscripcion();
+        if(panel==2){
+            principal.GuardarInscripcionAlumno(cursos);
+        }    
     }
 
     void CargarReubicacion(String[] DatosReubicacion) {
@@ -164,31 +162,39 @@ public class Reubicacion extends javax.swing.JPanel {
     private void CrearReubicacion() {
         if(principal.ReubicacionExiste(cedula)){
             if(Validar()){
-                String ubicacion = jTextFieldUbicacion.getText();
-                String Descripcion = jTextAreaDescripcion.getText();
-                if(principal.CrearReubicacion(ubicacion,Descripcion,cedula)){
-                    principal.mostrarPanelInscripcion();
-                    principal.CambioCedulaInscripcion(cedula);
-                    principal.CambioInscripcion(panel);
-                    principal.CambioCursos(cursos,Numerocursos);
-                    principal.CargarCambiosInscripcion();
-                }else{
-                    JOptionPane.showMessageDialog(null, "REGISTRO ERRONEO");
-                }
+                if(ValidarCadenas()){
+                    String ubicacion = jTextFieldUbicacion.getText();
+                    String Descripcion = jTextAreaDescripcion.getText();
+                    if(principal.CrearReubicacion(ubicacion,Descripcion,cedula)){
+                        principal.mostrarPanelInscripcion();
+                        principal.CambioCedulaInscripcion(cedula);
+                        principal.CambioInscripcion(panel);
+                        principal.CargarCambiosInscripcion();
+                        if(panel==2){
+                            principal.GuardarInscripcionAlumno(cursos);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "REGISTRO ERRONEO");
+                    }
+                }    
             }
         }else{
             if(Validar()){
-                String ubicacion = jTextFieldUbicacion.getText();
-                String Descripcion = jTextAreaDescripcion.getText();
-                if(principal.ModificarReubicacion(ubicacion,Descripcion,cedula)){
-                    principal.mostrarPanelInscripcion();
-                    principal.CambioCedulaInscripcion(cedula);
-                    principal.CambioInscripcion(panel);
-                    principal.CambioCursos(cursos,Numerocursos);
-                    principal.CargarCambiosInscripcion();
-                }else{
-                    JOptionPane.showMessageDialog(null, "REGISTRO ERRONEO");
-                }
+                if(ValidarCadenas()){
+                    String ubicacion = jTextFieldUbicacion.getText();
+                    String Descripcion = jTextAreaDescripcion.getText();
+                    if(principal.ModificarReubicacion(ubicacion,Descripcion,cedula)){
+                        principal.mostrarPanelInscripcion();
+                        principal.CambioCedulaInscripcion(cedula);
+                        principal.CambioInscripcion(panel);
+                        principal.CargarCambiosInscripcion();
+                        if(panel==2){
+                            principal.GuardarInscripcionAlumno(cursos);
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "REGISTRO ERRONEO");
+                    }
+                }    
             }
         }
     }   
@@ -196,6 +202,21 @@ public class Reubicacion extends javax.swing.JPanel {
     private boolean Validar() {
         if(jTextAreaDescripcion.getText().equals("")){
             JOptionPane.showMessageDialog(null, "INGRESE LA DESCRIPCION");
+            return false;
+        }
+        return true;
+    }
+
+    void GuardarCursosAlumno(String[] cursosInscritos) {
+        cursos=cursosInscritos;
+    }
+
+    private boolean ValidarCadenas() {
+        if(((jTextFieldUbicacion.getText()).length())>78){
+            JOptionPane.showMessageDialog(null, "UBICACION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }else if(((jTextAreaDescripcion.getText()).length())>295){
+            JOptionPane.showMessageDialog(null, "DESCRIPCION EXCEDE EL TAMAÑO VALIDO");
             return false;
         }
         return true;

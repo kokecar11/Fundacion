@@ -330,11 +330,8 @@ public class Principal extends javax.swing.JFrame {
     public void CambioCedulaFamilia(long cedula){
         familia.CambiarCedual(cedula);
     }
-    public void CambioReubicacion(int panel, long cedula, String[] cursos, int Numerocursos) {
-        reubicacion.CambioReubicacion(panel, cedula,cursos,Numerocursos);
-    }
-    void CambioCursos(String[] cursos, int Numerocursos) {
-        inscripcion.CambioCursosReubicacion(cursos,Numerocursos);
+    public void CambioReubicacion(int panel, long cedula) {
+        reubicacion.CambioReubicacion(panel, cedula);
     }
     public void CargarFamiliaSalud(long cedula){
         preFamilia.cargarTabla();
@@ -426,6 +423,9 @@ public class Principal extends javax.swing.JFrame {
     void CargarCambiosInscripcion() {
         inscripcion.CargarCambiosInscripcion();
     }
+    void CargarInscripcion(long cedula) {
+        inscripcion.CargarInscripcion(controladorInscripcion.DatosInscripcion(cedula));
+    }
     boolean AlumnoExiste(long cedula) {
         return controladorAlumno.AlumnoExiste(cedula);
     }
@@ -499,6 +499,10 @@ public class Principal extends javax.swing.JFrame {
        InscripcionFundacion inscripcionFundacion = new InscripcionFundacion(fechaInscripcion,estado, cedula);
        return controladorInscripcion.CrearInscripcion(inscripcionFundacion);
     }
+    boolean ModificarInscripcion(String fechaInscripcion, boolean estado, long cedula) {
+       InscripcionFundacion inscripcionFundacion = new InscripcionFundacion(fechaInscripcion,estado, cedula);
+       return controladorInscripcion.ModificarInscripcion(inscripcionFundacion);
+    }
     int ObtenerNumeroFamiliares(long cedula) {
         return controladorFamilia.contarFamiliaresAlumno(cedula);
     }
@@ -507,6 +511,9 @@ public class Principal extends javax.swing.JFrame {
     }
     int ObtenerNumeroTalleresActivos() {
         return controladorTalleres.contarNumeroTalleresActivos();
+    }
+    int ObtenerNumeroTalleresActivosConCupos() {
+        return controladorTalleres.ContarNumeroTalleresActivosConCupos();
     }
     int ObtenerNumeroInscritosTalleres(String taller) {
         return controladorTalleres.ContarNumeroInscritosTalleres(taller);
@@ -537,6 +544,52 @@ public class Principal extends javax.swing.JFrame {
         controladorTalleres.ModificarInscripcionTaller(nombre,taller);
         return controladorTalleres.ModificarTaller(tallere,taller);
         
+    }
+    int NumeroTalleresInscritoAlumno(long cedula) {
+        return controladorTalleres.NumeroTalleresInscritoAlumno(cedula);
+    }
+
+    String[] ConsularInscripcionTalleresAlumno(long cedula) {
+        return controladorTalleres.CargarTalleresAlumno(cedula);
+    }
+
+    String[] CargarNombreTalleres() {
+        return controladorTalleres.CargarNombreTalleresActivos();
+    }
+
+    void EliminarInscripcionTallerAlumno(String cursosInscrito, long cedula) {
+        controladorTalleres.EliminarInscripcionTallerAlumno(cursosInscrito,cedula);
+    }
+
+    boolean ConsultarInscripcionTallerPersona(String cursosInscrito, long cedula) {
+       return controladorTalleres.InscripcionExiste(cursosInscrito,cedula); 
+    }
+
+    void CrearInscripcionTaller(String cursosInscrito, long cedula) {
+        InscripcionTaller inscripcionTaller = new InscripcionTaller(cursosInscrito, cedula);
+        controladorTalleres.AgregarAlumnoTalleres(inscripcionTaller);
+    }
+
+    void GuardarCursosAlumno(String[] cursosInscritos) {
+        reubicacion.GuardarCursosAlumno(cursosInscritos);
+    }
+
+    void GuardarInscripcionAlumno(String[] cursos) {
+        inscripcion.GuardarInscripcionAlumno(cursos);
+    }
+
+    boolean ReubicacionExisteHistorial(long cedula) {
+        return controladorInscripcion.EstadoEstudiante(cedula);
+    }
+
+    void ModificarInscripcionTalleres(String[] cursos,long cedula) {
+        for(int i=0;i<cursos.length;i++){
+            controladorTalleres.EliminarInscripcionTallerAlumno(cursos[i], cedula);
+        }
+        for(int i=0;i<cursos.length;i++){
+            InscripcionTaller inscripcionTaller = new InscripcionTaller(cursos[i], cedula);
+            controladorTalleres.AgregarAlumnoTalleres(inscripcionTaller);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

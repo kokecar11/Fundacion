@@ -103,7 +103,7 @@ public class ControladorAlumno {
     }
 
     public boolean AlumnoExiste(long cedula) {
-         try {
+        try {
             String val = "";
             Conexion conexion = new Conexion();
             Connection conectar = conexion.conexion();

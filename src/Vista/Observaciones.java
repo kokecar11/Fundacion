@@ -5,18 +5,24 @@
  */
 package Vista;
 import Vista.Principal;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author david
  */
 public class Observaciones extends javax.swing.JPanel {
     private Principal principal;
+    public int seleccionAlumno=-1;
+    public int seleccionObservacion=-1;
+    private int observacion=-1;
     /**
      * Creates new form Observaciones
      */
     public Observaciones(Principal principal) {
         this.principal=principal;
         initComponents();
+        TablaObservaciones();
     }
 
     /**
@@ -29,48 +35,17 @@ public class Observaciones extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelObservaciones = new javax.swing.JLabel();
-        jButtonBuscar = new javax.swing.JButton();
-        jTextFieldBuscar = new javax.swing.JTextField();
-        jComboBoxEstudiantes = new javax.swing.JComboBox<>();
-        jLabelEstudiante = new javax.swing.JLabel();
-        jButtonCargar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableObservaciones = new javax.swing.JTable();
         jButtonVolver = new javax.swing.JButton();
         jButtonModificar = new javax.swing.JButton();
         jButtonCrear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableEstudiantes = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableObservaciones = new javax.swing.JTable();
 
         jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelObservaciones.setText("OBSERVACIONES");
-
-        jButtonBuscar.setText("Buscar");
-
-        jLabelEstudiante.setText("Estudiante");
-
-        jButtonCargar.setText("Cargar");
-
-        jTableObservaciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTableObservaciones);
 
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +55,11 @@ public class Observaciones extends javax.swing.JPanel {
         });
 
         jButtonModificar.setText("Modificar");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
 
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +67,52 @@ public class Observaciones extends javax.swing.JPanel {
                 jButtonCrearActionPerformed(evt);
             }
         });
+
+        jTableEstudiantes = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        jTableEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableEstudiantes.setFocusable(false);
+        jTableEstudiantes.getTableHeader().setReorderingAllowed(false);
+        jTableEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEstudiantesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableEstudiantes);
+
+        jLabel1.setText("Estudiantes");
+
+        jTableObservaciones = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
+        jTableObservaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTableObservaciones.setFocusable(false);
+        jTableObservaciones.getTableHeader().setReorderingAllowed(false);
+        jTableObservaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableObservacionesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableObservaciones);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -97,54 +123,42 @@ public class Observaciones extends javax.swing.JPanel {
                 .addComponent(jLabelObservaciones)
                 .addGap(197, 197, 197))
             .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jComboBoxEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButtonCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonVolver)
+                        .addGap(136, 136, 136)
+                        .addComponent(jButtonModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCrear)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(39, 39, 39))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelEstudiante)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jButtonVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonModificar)
-                .addGap(112, 112, 112)
-                .addComponent(jButtonCrear)
-                .addGap(61, 61, 61))
+                        .addGap(241, 241, 241)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelObservaciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonBuscar)
-                    .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEstudiante))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCargar))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonModificar)
                     .addComponent(jButtonCrear))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -153,21 +167,109 @@ public class Observaciones extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
-        principal.mostrarPanelObservacion();
+        IrObservacion();
     }//GEN-LAST:event_jButtonCrearActionPerformed
+
+    private void jTableEstudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEstudiantesMouseClicked
+        seleccionAlumno= evt.getY() /jTableEstudiantes.getRowHeight();
+        cargarTablaObservaciones();
+    }//GEN-LAST:event_jTableEstudiantesMouseClicked
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+       ModificarObservacion();
+    }//GEN-LAST:event_jButtonModificarActionPerformed
+
+    private void jTableObservacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableObservacionesMouseClicked
+        seleccionObservacion= evt.getY() /jTableObservaciones.getRowHeight();
+    }//GEN-LAST:event_jTableObservacionesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
-    private javax.swing.JButton jButtonCargar;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JButton jButtonModificar;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JComboBox<String> jComboBoxEstudiantes;
-    private javax.swing.JLabel jLabelEstudiante;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelObservaciones;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableEstudiantes;
     private javax.swing.JTable jTableObservaciones;
-    private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
+    public void cargarTabla() {
+        DefaultTableModel modeloTabla= (DefaultTableModel) jTableEstudiantes.getModel();
+        modeloTabla.addColumn("Identificacion");
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Apellido");
+        int c=principal.ObtenerNumeroAlumnos();
+        int x=0;
+        Object [][]datos=new Object[c][3];
+        datos=principal.CargarTodosAlumnos();
+        while(x<c){
+            Object row[]= {datos[x][0],datos[x][1],datos[x][2]};
+            ((DefaultTableModel)jTableEstudiantes.getModel()).addRow(row);
+            x++;
+        }
+    }
+
+    private void IrObservacion() {
+        if(seleccionAlumno!=-1){
+            principal.mostrarPanelObservacion();
+            long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+            String nombre =(String) jTableEstudiantes.getValueAt(seleccionAlumno, 1);
+            String apellido =(String) jTableEstudiantes.getValueAt(seleccionAlumno, 2);
+            principal.CambioCedulaObservacion(cedula,nombre,apellido);
+        }else{
+            JOptionPane.showMessageDialog(null, "SELECCIONAR ALUMNO");
+        }
+    }
+
+    private void cargarTablaObservaciones() {
+        seleccionObservacion=-1;
+        if(observacion>0){
+            for(int i=0;i<observacion;i++){
+                ((DefaultTableModel)jTableObservaciones.getModel()).removeRow(0);
+            }
+        }
+        int c=principal.ObtenerNumeroObservacionesAlumnos(Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0)));
+        observacion=c;
+        int x=0;
+        Object [][]datos=new Object[c][2];
+        datos=principal.CargarTodasObservacionesAlumnos(Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0)));
+        while(x<c){
+            String descripcion=(String)datos[x][1];;
+            if(descripcion.length()>43){
+                descripcion=descripcion.substring(0,43)+"...";
+            }
+            Object row[]= {datos[x][0],descripcion};
+            ((DefaultTableModel)jTableObservaciones.getModel()).addRow(row);
+            x++;
+        }
+    }
+
+    private void TablaObservaciones() {
+        DefaultTableModel modeloTabla= (DefaultTableModel) jTableObservaciones.getModel();
+        modeloTabla.addColumn("Referencia de observacion");
+        modeloTabla.addColumn("Descripcion");
+    }
+
+    private void ModificarObservacion() {
+        if(seleccionAlumno!=-1){
+            if(seleccionObservacion!=-1){
+                principal.mostrarPanelObservacion();
+                long cedula=Long.parseLong((String) jTableEstudiantes.getValueAt(seleccionAlumno, 0));
+                int observacion=Integer.parseInt((String) jTableObservaciones.getValueAt(seleccionObservacion, 0));
+                String nombre =(String) jTableEstudiantes.getValueAt(seleccionAlumno, 1);
+                String apellido =(String) jTableEstudiantes.getValueAt(seleccionAlumno, 2);
+                principal.CambioCedulaObservacion(cedula,nombre,apellido);
+                principal.CambioDatoObservacion(observacion);
+                principal.CargarObservacion(cedula,observacion);
+            }else{
+                JOptionPane.showMessageDialog(null, "SELECCIONAR OBSERVACION");
+            }    
+        }else{
+            JOptionPane.showMessageDialog(null, "SELECCIONAR ALUMNO");
+        }
+    }
+
+
 }

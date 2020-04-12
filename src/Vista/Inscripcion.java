@@ -619,8 +619,4 @@ public class Inscripcion extends javax.swing.JPanel {
         cursosInscritos=cursosDeReubicacion;
     }
 
-    private void cargarCombo() {
-        
-    }
-
 }

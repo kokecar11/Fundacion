@@ -5,18 +5,23 @@
  */
 package Vista;
 import Vista.Principal;
+import javax.swing.JOptionPane;
 /**
  *
  * @author david
  */
 public class Observacion extends javax.swing.JPanel {
     private Principal principal;
+    public long cedula=0;
+    public int dato=-1;
     /**
      * Creates new form ObservacionesCrear
      */
     public Observacion(Principal principal) {
         this.principal=principal;
         initComponents();
+        jTextAreaDescripcion.setLineWrap(true);
+        jTextAreaDescripcion.setWrapStyleWord(true);
     }
 
     /**
@@ -44,7 +49,12 @@ public class Observacion extends javax.swing.JPanel {
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
-        jButtonCrear.setText("Crear");
+        jButtonCrear.setText("Guardar");
+        jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCrearActionPerformed(evt);
+            }
+        });
 
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -94,8 +104,12 @@ public class Observacion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
-        principal.mostrarPanelObservaciones();
+        CargarAlumnoObservaciones();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
+        GuardarObservacion();
+    }//GEN-LAST:event_jButtonCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -106,4 +120,55 @@ public class Observacion extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescripcion;
     // End of variables declaration//GEN-END:variables
+    private void CargarAlumnoObservaciones(){
+        principal.mostrarPanelObservaciones();
+        principal.CargarAlumnoObservaciones();
+    }
+    public void CambioCedulaObervacion(Long cedula,String nombre,String apellido){
+        this.cedula=cedula;
+        String nombreCompleto=nombre+" "+apellido;
+        jLabelNombreEstudiante.setText(nombreCompleto);
+    }
+    public void CambioDatoObservacion(int cambio){
+        dato=cambio;
+    }
+    
+    private void GuardarObservacion() {
+        if(dato==-1){
+            if(validar()){
+                String descripcion=jTextAreaDescripcion.getText();
+                if(principal.CrearObservacion(descripcion,cedula)){
+                    principal.mostrarPanelObservaciones();
+                    principal.CargarAlumnoObservaciones();
+                }else{
+                    JOptionPane.showMessageDialog(null, "observacion fallida");
+                }
+            }
+        }else{
+            if(validar()){
+                String descripcion=jTextAreaDescripcion.getText();
+                if(principal.ModificarObservacion(descripcion,dato,cedula)){
+                    principal.mostrarPanelObservaciones();
+                    principal.CargarAlumnoObservaciones();
+                }else{
+                    JOptionPane.showMessageDialog(null, "observacion fallida");
+                }
+            }
+        }
+    }
+
+    private boolean validar() {
+        if((jTextAreaDescripcion.getText()).equals("")){
+            JOptionPane.showMessageDialog(null, "ESCRIBA DESCRIPCION");
+            return false;
+        }else if(((jTextAreaDescripcion.getText()).length())>240){
+            JOptionPane.showMessageDialog(null, "DESCRIPCION EXCEDE EL TAMAÑO VALIDO");
+            return false;
+        }
+        return true;
+    }
+
+    void CargarObservacion(String DatosObservacion) {
+        jTextAreaDescripcion.setText(DatosObservacion);
+    }
 }

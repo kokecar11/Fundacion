@@ -24,6 +24,7 @@ import Modelo.Tallere;
 import Modelo.Reubicaciones;
 import Modelo.InscripcionFundacion;
 import Modelo.InscripcionTaller;
+import Modelo.Observacionis;
 import Controlador.ControladorLogin;
 import Controlador.ControladorAlumno;
 import Controlador.ControladorContacto;
@@ -33,6 +34,7 @@ import Controlador.ControladorFamilia;
 import Controlador.ControladorTalleres;
 import Controlador.ControladorReubicacion;
 import Controlador.ControladorInscripcion;
+import Controlador.ControladorObervacion;
 import java.awt.LayoutManager;
 import javax.swing.JPanel;
 
@@ -63,6 +65,7 @@ public class Principal extends javax.swing.JFrame {
     public ControladorTalleres controladorTalleres;
     public ControladorReubicacion controladorReubicacion;
     public ControladorInscripcion controladorInscripcion;
+    public ControladorObervacion controladorObsercacion;
     public Principal() {
         this.login = new Login(this);
         this.home = new Home(this);
@@ -89,6 +92,7 @@ public class Principal extends javax.swing.JFrame {
         this.controladorTalleres = new ControladorTalleres();
         this.controladorReubicacion = new ControladorReubicacion();
         this.controladorInscripcion = new ControladorInscripcion();
+        this.controladorObsercacion = new ControladorObervacion();
         LayoutManager layoutManager = getContentPane().getLayout();
         initComponents();
         setLayout(layoutManager); 
@@ -330,6 +334,9 @@ public class Principal extends javax.swing.JFrame {
     public void CambioCedulaFamilia(long cedula){
         familia.CambiarCedual(cedula);
     }
+    public void CambioCedulaObservacion(long cedula,String nombre, String apellido){
+        observacion.CambioCedulaObervacion(cedula,nombre,apellido);
+    }
     public void CambioReubicacion(int panel, long cedula) {
         reubicacion.CambioReubicacion(panel, cedula);
     }
@@ -495,6 +502,14 @@ public class Principal extends javax.swing.JFrame {
         }
         
     }
+    boolean CrearObservacion(String descripcion, long cedula) {
+        Observacionis observacionis = new Observacionis(descripcion, cedula);
+        return controladorObsercacion.CrearObservacion(observacionis);
+    }
+    boolean ModificarObservacion(String descripcion,int dato,long cedula) {
+        Observacionis observacionis = new Observacionis(descripcion, cedula);
+        return controladorObsercacion.ModificarObservacion(observacionis,dato);
+    }
     boolean CrearInscripcion(String fechaInscripcion, boolean estado, long cedula) {
        InscripcionFundacion inscripcionFundacion = new InscripcionFundacion(fechaInscripcion,estado, cedula);
        return controladorInscripcion.CrearInscripcion(inscripcionFundacion);
@@ -590,6 +605,26 @@ public class Principal extends javax.swing.JFrame {
             InscripcionTaller inscripcionTaller = new InscripcionTaller(cursos[i], cedula);
             controladorTalleres.AgregarAlumnoTalleres(inscripcionTaller);
         }
+    }
+
+    void CargarAlumnoObservaciones() {
+        observaciones.cargarTabla();
+    }    
+
+    int ObtenerNumeroObservacionesAlumnos(long cedula) {
+        return controladorObsercacion.ObtenerNumeroObservacionesAlumno(cedula);
+    }
+
+    Object[][] CargarTodasObservacionesAlumnos(long cedula) {
+        return controladorObsercacion.CargarTodasObservacionesAlumno(cedula);
+    }
+
+    void CambioDatoObservacion(int cambio) {
+        observacion.CambioDatoObservacion(cambio);
+    }
+
+    void CargarObservacion(long cedula, int observaciones) {
+        observacion.CargarObservacion(controladorObsercacion.DatosObservacion(cedula,observaciones));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

@@ -23,11 +23,11 @@
                   <Component id="jLabelClave" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextFieldUsuario" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
-                  <Component id="jTextFieldClave" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jTextFieldUsuario" pref="139" max="32767" attributes="0"/>
+                  <Component id="jPasswordFieldContrasenia" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
@@ -46,8 +46,8 @@
               </Group>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldClave" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelClave" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPasswordFieldContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="74" max="32767" attributes="0"/>
               <Component id="jButtonIniciar" min="-2" max="-2" attributes="0"/>
@@ -64,8 +64,6 @@
         <Property name="text" type="java.lang.String" value="Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldClave">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabelClave">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
@@ -78,6 +76,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIniciarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPasswordFieldContrasenia">
     </Component>
   </SubComponents>
 </Form>

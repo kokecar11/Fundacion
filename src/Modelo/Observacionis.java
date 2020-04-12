@@ -9,23 +9,13 @@ package Modelo;
  *
  * @author david
  */
-public class Observaciones {
-    private int idObservaciones;
+public class Observacionis {
     private String descripcion;
     private long alumnoID;
 
-    public Observaciones(int idObservaciones, String descripcion, long alumnoID) {
-        this.idObservaciones = idObservaciones;
+    public Observacionis(String descripcion, long alumnoID) {
         this.descripcion = descripcion;
         this.alumnoID = alumnoID;
-    }
-
-    public int getIdObservaciones() {
-        return idObservaciones;
-    }
-
-    public void setIdObservaciones(int idObservaciones) {
-        this.idObservaciones = idObservaciones;
     }
 
     public String getDescripcion() {

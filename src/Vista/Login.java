@@ -22,9 +22,9 @@ public class Login extends javax.swing.JPanel {
 
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabelUsuario = new javax.swing.JLabel();
-        jTextFieldClave = new javax.swing.JTextField();
         jLabelClave = new javax.swing.JLabel();
         jButtonIniciar = new javax.swing.JButton();
+        jPasswordFieldContrasenia = new javax.swing.JPasswordField();
 
         jLabelUsuario.setText("Usuario");
 
@@ -47,9 +47,9 @@ public class Login extends javax.swing.JPanel {
                     .addComponent(jLabelUsuario)
                     .addComponent(jLabelClave))
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldClave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldContrasenia))
                 .addGap(79, 79, 79))
             .addGroup(layout.createSequentialGroup()
                 .addGap(171, 171, 171)
@@ -65,8 +65,8 @@ public class Login extends javax.swing.JPanel {
                     .addComponent(jLabelUsuario))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelClave))
+                    .addComponent(jLabelClave)
+                    .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jButtonIniciar)
                 .addGap(58, 58, 58))
@@ -82,13 +82,13 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JButton jButtonIniciar;
     private javax.swing.JLabel jLabelClave;
     private javax.swing.JLabel jLabelUsuario;
-    private javax.swing.JTextField jTextFieldClave;
+    private javax.swing.JPasswordField jPasswordFieldContrasenia;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 
     private void MostrarHome() {
         String usuario=jTextFieldUsuario.getText();
-        String clave=jTextFieldClave.getText();
+        String clave=jPasswordFieldContrasenia.getText();
         if(principal.BuscarLogin(usuario,clave)){
             principal.mostrarPanelHome();
         }else{

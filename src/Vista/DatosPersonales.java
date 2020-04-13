@@ -71,43 +71,43 @@ public class DatosPersonales extends javax.swing.JPanel {
         jLabelDatosPersonales.setText("DATOS PERSONALES");
         add(jLabelDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, -1));
 
-        jLabelIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelIdentificacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelIdentificacion.setText("Indentificación");
         add(jLabelIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 121, -1, -1));
 
-        jLabelApellido.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelApellido.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelApellido.setText("Apellidos");
         add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 59, -1, -1));
 
-        jLabelFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelFechaNacimiento.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelFechaNacimiento.setText("Fecha Nacimiento");
         add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 179, -1, -1));
 
-        jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelNombre.setText("Nombres");
         add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 65, -1, -1));
 
-        jLabelOcupacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelOcupacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelOcupacion.setText("Ocupación");
         add(jLabelOcupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 237, -1, -1));
 
-        jLabelTipoIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTipoIdentificacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelTipoIdentificacion.setText("Tipo de Documento");
         add(jLabelTipoIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 121, -1, -1));
 
-        jLabelLugarNacimiento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelLugarNacimiento.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelLugarNacimiento.setText("Lugar Nacimiento");
         add(jLabelLugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 179, -1, -1));
 
-        jLabelTallaPantalon.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTallaPantalon.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelTallaPantalon.setText("Talla Pantalon");
         add(jLabelTallaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 292, -1, -1));
 
-        jLabelTallaZapatos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTallaZapatos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelTallaZapatos.setText("Talla Zapatos ");
         add(jLabelTallaZapatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 341, -1, -1));
 
-        jTextFieldIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldIdentificacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldIdentificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdentificacionActionPerformed(evt);
@@ -115,25 +115,25 @@ public class DatosPersonales extends javax.swing.JPanel {
         });
         add(jTextFieldIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 115, 190, 28));
 
-        jTextFieldNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 59, 190, 28));
 
-        jTextFieldOcupacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldOcupacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldOcupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 231, 190, 28));
 
-        jTextFieldApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 59, 191, 28));
 
-        jTextFieldTallaPantalon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldTallaPantalon.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldTallaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 286, 190, 28));
 
-        jTextFieldTallaZapatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldTallaZapatos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldTallaZapatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 341, 190, 28));
 
-        jTextFieldLugarNacimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldLugarNacimiento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldLugarNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 173, 190, 28));
 
-        jButtonSiguienteModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,7 @@ public class DatosPersonales extends javax.swing.JPanel {
         });
         add(jButtonSiguienteModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 396, -1, -1));
 
-        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,17 +151,18 @@ public class DatosPersonales extends javax.swing.JPanel {
         });
         add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 396, -1, -1));
 
-        jComboBoxTipoIdentificacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBoxTipoIdentificacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jComboBoxTipoIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 115, 190, 28));
 
-        jLabelTallaCamisa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTallaCamisa.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelTallaCamisa.setText("Talla Camisa ");
         add(jLabelTallaCamisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 292, -1, -1));
 
-        jTextFieldTallaCamisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldTallaCamisa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jTextFieldTallaCamisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 286, 190, 28));
 
         jDateChooserFechaNacimiento.setDateFormatString("yyyy/MM/dd");
+        jDateChooserFechaNacimiento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         add(jDateChooserFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 173, 190, 28));
     }// </editor-fold>//GEN-END:initComponents
 

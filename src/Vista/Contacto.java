@@ -49,33 +49,42 @@ public class Contacto extends javax.swing.JPanel {
         jTextFieldNumeroFijo = new javax.swing.JTextField();
         jTextFieldCelular = new javax.swing.JTextField();
 
+        setToolTipText("");
         setPreferredSize(new java.awt.Dimension(900, 550));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("UBICACIÓN Y CONTACTO");
 
-        jLabelLocalidad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelLocalidad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelLocalidad.setText("Localidad");
+        jLabelLocalidad.setToolTipText("");
 
-        jLabelDireccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelDireccion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelDireccion.setText("Dirección");
+        jLabelDireccion.setToolTipText("");
 
-        jLabelNumeroFijo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelNumeroFijo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelNumeroFijo.setText("Numero Fijo");
+        jLabelNumeroFijo.setToolTipText("");
 
-        jLabelEstrato.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelEstrato.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelEstrato.setText("Estrato");
+        jLabelEstrato.setToolTipText("");
 
-        jLabelTipoVivienda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTipoVivienda.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelTipoVivienda.setText("Tipo de vivienda");
+        jLabelTipoVivienda.setToolTipText("");
 
-        jLabelCelular.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelCelular.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelCelular.setText("Celular");
+        jLabelCelular.setToolTipText("");
 
-        jComboBoxEstrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldDireccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jButtonSiguienteModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBoxEstrato.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +92,7 @@ public class Contacto extends javax.swing.JPanel {
             }
         });
 
-        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,13 +100,13 @@ public class Contacto extends javax.swing.JPanel {
             }
         });
 
-        jComboBoxTipoVivienda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBoxTipoVivienda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jComboBoxLocalidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBoxLocalidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jTextFieldNumeroFijo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldNumeroFijo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
-        jTextFieldCelular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldCelular.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,10 +138,8 @@ public class Contacto extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelLocalidad)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelTipoVivienda)
-                                            .addGap(0, 0, Short.MAX_VALUE)))
-                                    .addGap(37, 37, 37)
+                                        .addComponent(jLabelTipoVivienda))
+                                    .addGap(5, 5, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jComboBoxTipoVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jComboBoxLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -142,7 +149,7 @@ public class Contacto extends javax.swing.JPanel {
                             .addGap(250, 250, 250)
                             .addComponent(jButtonSiguienteModificar)
                             .addGap(139, 139, 139))))
-                .addGap(0, 100, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

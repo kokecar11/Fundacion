@@ -62,20 +62,27 @@ public class Inscripcion extends javax.swing.JPanel {
         jButtonInactividad = new javax.swing.JButton();
 
         jLabelInscripcion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelInscripcion.setText("INSCRIPCION");
+        jLabelInscripcion.setText("INSCRIPCIÓN");
 
-        jLabelFechaInscripcion.setText("Fecha inscripcion");
+        jLabelFechaInscripcion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelFechaInscripcion.setText("Fecha inscripción");
 
+        jLabelEstado.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelEstado.setText("Estado");
 
+        jComboBoxEstado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBoxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxEstadoActionPerformed(evt);
             }
         });
 
+        jLabelCursos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelCursos.setText("Cursos");
 
+        jComboBoxCursos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jButtonAgregar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +90,7 @@ public class Inscripcion extends javax.swing.JPanel {
             }
         });
 
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +98,7 @@ public class Inscripcion extends javax.swing.JPanel {
             }
         });
 
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +111,7 @@ public class Inscripcion extends javax.swing.JPanel {
                 return false;
             }
         };
+        jTableCursos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTableCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -120,7 +130,9 @@ public class Inscripcion extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTableCursos);
 
         jDateChooserFechaInscripcion.setDateFormatString("yyyy/MM/dd");
+        jDateChooserFechaInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        jButtonQuitar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonQuitar.setText("Quitar");
         jButtonQuitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +140,7 @@ public class Inscripcion extends javax.swing.JPanel {
             }
         });
 
+        jButtonInactividad.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonInactividad.setText("Inactividad");
         jButtonInactividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,15 +159,22 @@ public class Inscripcion extends javax.swing.JPanel {
                 .addComponent(jButtonSiguienteModificar)
                 .addGap(120, 120, 120))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelInscripcion)
-                .addGap(224, 224, 224))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabelFechaInscripcion)
+                        .addGap(18, 18, 18)
+                        .addComponent(jDateChooserFechaInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(jLabelEstado)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(150, 150, 150)
+                                .addGap(75, 75, 75)
+                                .addComponent(jLabelCursos)
+                                .addGap(18, 18, 18)
                                 .addComponent(jComboBoxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(92, 92, 92)
@@ -162,24 +182,16 @@ public class Inscripcion extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonQuitar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelCursos)
-                            .addComponent(jLabelFechaInscripcion))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooserFechaInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabelEstado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jButtonInactividad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 19, Short.MAX_VALUE))
-                            .addComponent(jComboBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(77, 77, 77))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonInactividad, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(jLabelInscripcion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,12 +203,12 @@ public class Inscripcion extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelFechaInscripcion)
-                            .addComponent(jDateChooserFechaInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jDateChooserFechaInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelEstado)
-                            .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelEstado))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
@@ -209,9 +221,9 @@ public class Inscripcion extends javax.swing.JPanel {
                             .addComponent(jButtonQuitar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonInactividad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

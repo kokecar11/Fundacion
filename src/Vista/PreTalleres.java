@@ -5,6 +5,7 @@
  */
 package Vista;
 import Vista.Principal;
+import Vista.Home;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -43,6 +44,7 @@ public class PreTalleres extends javax.swing.JPanel {
         jLabelTalleres.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelTalleres.setText("TALLERES");
 
+        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +52,7 @@ public class PreTalleres extends javax.swing.JPanel {
             }
         });
 
+        jButtonCrear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +60,7 @@ public class PreTalleres extends javax.swing.JPanel {
             }
         });
 
+        jButtonModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonModificar.setText("Modificar");
         jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +73,7 @@ public class PreTalleres extends javax.swing.JPanel {
                 return false;
             }
         };
+        jTableTalleres.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTableTalleres.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -92,29 +97,28 @@ public class PreTalleres extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(jButtonVolver)
-                .addGap(124, 124, 124)
-                .addComponent(jButtonModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCrear)
-                .addGap(57, 57, 57))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                        .addComponent(jButtonModificar)
+                        .addGap(200, 200, 200)
+                        .addComponent(jButtonCrear)))
+                .addGap(74, 74, 74))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelTalleres)
-                .addGap(245, 245, 245))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGap(344, 344, 344))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelTalleres)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonCrear)
@@ -164,9 +168,10 @@ public class PreTalleres extends javax.swing.JPanel {
     }
     public void cargarTabla() {
         DefaultTableModel modeloTabla= (DefaultTableModel) jTableTalleres.getModel();
-        modeloTabla.addColumn("nombre");
-        modeloTabla.addColumn("estado");
-        modeloTabla.addColumn("cupos");
+        modeloTabla.addColumn("Nombre");
+        modeloTabla.addColumn("Estado");
+        modeloTabla.addColumn("Cupos");
+        
         int c=principal.ObtenerNumeroTalleres();
         int x=0;
         Object [][]datos=new Object[c][3];

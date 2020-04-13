@@ -16,43 +16,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="143" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabelPerfilAcademico" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelInstitucionEducativa" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelGrado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldNivelEscolar" min="-2" pref="135" max="-2" attributes="0"/>
-                          <Component id="jTextFieldInstitucionEducatica" min="-2" pref="135" max="-2" attributes="0"/>
-                          <Component id="jTextFieldGrado" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jButtonVolver" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                       <Component id="jButtonSiguienteModificar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelNivelEscolar" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelInstitucionEducativa" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGrado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextFieldInstitucionEducatica" max="32767" attributes="0"/>
+                          <Component id="jTextFieldNivelEscolar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldGrado" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace pref="162" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-              <Component id="jLabelNivelEscolar" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabelPerfilAcademico" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,26 +54,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelPerfilAcademico" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelInstitucionEducativa" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldInstitucionEducatica" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jLabelInstitucionEducativa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="jLabelNivelEscolar" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="jLabelGrado" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jTextFieldInstitucionEducatica" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="jTextFieldNivelEscolar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="jTextFieldGrado" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelGrado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldGrado" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="102" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonSiguienteModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonVolver" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -102,27 +91,54 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNivelEscolar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Nivel escolar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldInstitucionEducatica">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelGrado">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Grado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelInstitucionEducativa">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Institucion educcativa"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Instituci&#xf3;n educativa"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldGrado">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNivelEscolar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSiguienteModificar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
       <Events>
@@ -131,7 +147,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVolver">
       <Properties>
-        <Property name="text" type="java.lang.String" value="volver"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVolverActionPerformed"/>

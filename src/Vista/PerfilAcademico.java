@@ -44,12 +44,22 @@ public class PerfilAcademico extends javax.swing.JPanel {
         jLabelPerfilAcademico.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelPerfilAcademico.setText("PERFIL ACADEMICO");
 
+        jLabelNivelEscolar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelNivelEscolar.setText("Nivel escolar");
 
+        jTextFieldInstitucionEducatica.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabelGrado.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelGrado.setText("Grado");
 
-        jLabelInstitucionEducativa.setText("Institucion educcativa");
+        jLabelInstitucionEducativa.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelInstitucionEducativa.setText("Institución educativa");
 
+        jTextFieldGrado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jTextFieldNivelEscolar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +67,8 @@ public class PerfilAcademico extends javax.swing.JPanel {
             }
         });
 
-        jButtonVolver.setText("volver");
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
@@ -68,34 +79,29 @@ public class PerfilAcademico extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(138, 138, 138)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelPerfilAcademico)
-                        .addGap(189, 189, 189))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelInstitucionEducativa)
-                                .addGap(72, 72, 72))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelGrado)
-                                .addGap(109, 109, 109)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNivelEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldInstitucionEducatica, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(128, 128, 128))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonVolver)
                         .addGap(178, 178, 178)
                         .addComponent(jButtonSiguienteModificar)
-                        .addGap(142, 142, 142))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabelNivelEscolar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelNivelEscolar)
+                            .addComponent(jLabelInstitucionEducativa)
+                            .addComponent(jLabelGrado))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldInstitucionEducatica)
+                            .addComponent(jTextFieldNivelEscolar)
+                            .addComponent(jTextFieldGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(162, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelPerfilAcademico)
+                .addGap(240, 240, 240))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,21 +109,20 @@ public class PerfilAcademico extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabelPerfilAcademico)
                 .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInstitucionEducativa)
-                    .addComponent(jTextFieldInstitucionEducatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabelNivelEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelInstitucionEducativa)
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabelNivelEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabelGrado))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jTextFieldNivelEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelGrado)
-                    .addComponent(jTextFieldGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(jTextFieldInstitucionEducatica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jTextFieldNivelEscolar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jTextFieldGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSiguienteModificar)
                     .addComponent(jButtonVolver))

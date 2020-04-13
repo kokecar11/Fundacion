@@ -41,14 +41,17 @@ public class Observacion extends javax.swing.JPanel {
         jButtonVolver = new javax.swing.JButton();
 
         jLabelObservacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelObservacion.setText("OBSERVACION");
+        jLabelObservacion.setText("OBSERVACIÓN");
 
+        jLabelNombreEstudiante.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelNombreEstudiante.setText("NOMBRE ESTUDIANTE");
 
         jTextAreaDescripcion.setColumns(20);
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
+        jButtonCrear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonCrear.setText("Guardar");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +59,7 @@ public class Observacion extends javax.swing.JPanel {
             }
         });
 
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,39 +71,40 @@ public class Observacion extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(jLabelObservacion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jLabelNombreEstudiante)))
-                .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(146, 146, 146)
                 .addComponent(jButtonVolver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonCrear)
                 .addGap(109, 109, 109))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelNombreEstudiante)
+                        .addGap(239, 239, 239))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelObservacion)
+                        .addGap(260, 260, 260))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelObservacion)
-                .addGap(34, 34, 34)
+                .addGap(48, 48, 48)
                 .addComponent(jLabelNombreEstudiante)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCrear)
                     .addComponent(jButtonVolver))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,7 +146,7 @@ public class Observacion extends javax.swing.JPanel {
                     principal.mostrarPanelObservaciones();
                     principal.CargarAlumnoObservaciones();
                 }else{
-                    JOptionPane.showMessageDialog(null, "observacion fallida");
+                    JOptionPane.showMessageDialog(null, "Observación fallida");
                 }
             }
         }else{
@@ -151,7 +156,7 @@ public class Observacion extends javax.swing.JPanel {
                     principal.mostrarPanelObservaciones();
                     principal.CargarAlumnoObservaciones();
                 }else{
-                    JOptionPane.showMessageDialog(null, "observacion fallida");
+                    JOptionPane.showMessageDialog(null, "Observación fallida");
                 }
             }
         }
@@ -162,7 +167,7 @@ public class Observacion extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "ESCRIBA DESCRIPCION");
             return false;
         }else if(((jTextAreaDescripcion.getText()).length())>240){
-            JOptionPane.showMessageDialog(null, "DESCRIPCION EXCEDE EL TAMAÑO VALIDO");
+            JOptionPane.showMessageDialog(null, "DESCRIPCIÓN EXCEDE EL TAMAÑO VALIDO");
             return false;
         }
         return true;

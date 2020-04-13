@@ -34,7 +34,7 @@
     <Component class="javax.swing.JLabel" name="jLabelIdentificacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Indentificaci&#xf3;n"/>
       </Properties>
@@ -47,7 +47,7 @@
     <Component class="javax.swing.JLabel" name="jLabelApellido">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Apellidos"/>
       </Properties>
@@ -60,7 +60,7 @@
     <Component class="javax.swing.JLabel" name="jLabelFechaNacimiento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Fecha Nacimiento"/>
       </Properties>
@@ -73,7 +73,7 @@
     <Component class="javax.swing.JLabel" name="jLabelNombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nombres"/>
       </Properties>
@@ -86,7 +86,7 @@
     <Component class="javax.swing.JLabel" name="jLabelOcupacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Ocupaci&#xf3;n"/>
       </Properties>
@@ -99,7 +99,7 @@
     <Component class="javax.swing.JLabel" name="jLabelTipoIdentificacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tipo de Documento"/>
       </Properties>
@@ -112,7 +112,7 @@
     <Component class="javax.swing.JLabel" name="jLabelLugarNacimiento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Lugar Nacimiento"/>
       </Properties>
@@ -125,7 +125,7 @@
     <Component class="javax.swing.JLabel" name="jLabelTallaPantalon">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Talla Pantalon"/>
       </Properties>
@@ -138,7 +138,7 @@
     <Component class="javax.swing.JLabel" name="jLabelTallaZapatos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Talla Zapatos "/>
       </Properties>
@@ -151,7 +151,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldIdentificacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -169,7 +169,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldNombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -181,7 +181,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldOcupacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -193,7 +193,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldApellido">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -205,7 +205,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldTallaPantalon">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -217,7 +217,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldTallaZapatos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -229,7 +229,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldLugarNacimiento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -241,7 +241,7 @@
     <Component class="javax.swing.JButton" name="jButtonSiguienteModificar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
@@ -257,7 +257,7 @@
     <Component class="javax.swing.JButton" name="jButtonVolver">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Volver"/>
       </Properties>
@@ -273,7 +273,7 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxTipoIdentificacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -291,7 +291,7 @@
     <Component class="javax.swing.JLabel" name="jLabelTallaCamisa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Arial" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Talla Camisa "/>
       </Properties>
@@ -304,7 +304,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldTallaCamisa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
+          <Font name="Arial" size="14" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -316,6 +316,9 @@
     <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaNacimiento">
       <Properties>
         <Property name="dateFormatString" type="java.lang.String" value="yyyy/MM/dd"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="0"/>
+        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

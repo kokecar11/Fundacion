@@ -26,10 +26,15 @@ public class Login extends javax.swing.JPanel {
         jButtonIniciar = new javax.swing.JButton();
         jPasswordFieldContrasenia = new javax.swing.JPasswordField();
 
+        jTextFieldUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabelUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelUsuario.setText("Usuario");
 
+        jLabelClave.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelClave.setText("Contraseña");
 
+        jButtonIniciar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonIniciar.setText("Iniciar");
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -37,18 +42,20 @@ public class Login extends javax.swing.JPanel {
             }
         });
 
+        jPasswordFieldContrasenia.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelUsuario)
                     .addComponent(jLabelClave))
-                .addGap(54, 54, 54)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(jPasswordFieldContrasenia))
                 .addGap(79, 79, 79))
             .addGroup(layout.createSequentialGroup()
@@ -61,13 +68,13 @@ public class Login extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUsuario))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClave)
-                    .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jButtonIniciar)
                 .addGap(58, 58, 58))
         );

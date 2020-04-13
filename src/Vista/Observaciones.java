@@ -47,6 +47,7 @@ public class Observaciones extends javax.swing.JPanel {
         jLabelObservaciones.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelObservaciones.setText("OBSERVACIONES");
 
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +55,7 @@ public class Observaciones extends javax.swing.JPanel {
             }
         });
 
+        jButtonModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonModificar.setText("Modificar");
         jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +63,7 @@ public class Observaciones extends javax.swing.JPanel {
             }
         });
 
+        jButtonCrear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +76,7 @@ public class Observaciones extends javax.swing.JPanel {
                 return false;
             }
         };
+        jTableEstudiantes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTableEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -90,6 +94,7 @@ public class Observaciones extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableEstudiantes);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Estudiantes");
 
         jTableObservaciones = new javax.swing.JTable(){
@@ -97,6 +102,7 @@ public class Observaciones extends javax.swing.JPanel {
                 return false;
             }
         };
+        jTableObservaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTableObservaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -118,47 +124,48 @@ public class Observaciones extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelObservaciones)
-                .addGap(197, 197, 197))
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonVolver)
-                        .addGap(136, 136, 136)
+                        .addGap(164, 164, 164)
                         .addComponent(jButtonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonCrear)
                         .addGap(62, 62, 62))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))
-                        .addGap(39, 39, 39))
+                        .addGap(39, 39, 39))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(295, 295, 295)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabelObservaciones)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jLabelObservaciones)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonModificar)
                     .addComponent(jButtonCrear))
-                .addGap(45, 45, 45))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -197,7 +204,7 @@ public class Observaciones extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     public void cargarTabla() {
         DefaultTableModel modeloTabla= (DefaultTableModel) jTableEstudiantes.getModel();
-        modeloTabla.addColumn("Identificacion");
+        modeloTabla.addColumn("Identificación");
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("Apellido");
         int c=principal.ObtenerNumeroAlumnos();
@@ -248,8 +255,8 @@ public class Observaciones extends javax.swing.JPanel {
 
     private void TablaObservaciones() {
         DefaultTableModel modeloTabla= (DefaultTableModel) jTableObservaciones.getModel();
-        modeloTabla.addColumn("Referencia de observacion");
-        modeloTabla.addColumn("Descripcion");
+        modeloTabla.addColumn("Referencia de observación");
+        modeloTabla.addColumn("Descripción");
     }
 
     private void ModificarObservacion() {
@@ -264,7 +271,7 @@ public class Observaciones extends javax.swing.JPanel {
                 principal.CambioDatoObservacion(observacion);
                 principal.CargarObservacion(cedula,observacion);
             }else{
-                JOptionPane.showMessageDialog(null, "SELECCIONAR OBSERVACION");
+                JOptionPane.showMessageDialog(null, "SELECCIONAR OBSERVACIÓN");
             }    
         }else{
             JOptionPane.showMessageDialog(null, "SELECCIONAR ALUMNO");

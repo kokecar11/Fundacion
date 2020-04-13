@@ -56,32 +56,49 @@ public class Salud extends javax.swing.JPanel {
         jLabelSalud.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelSalud.setText("SALUD");
 
+        jLabelConvenio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelConvenio.setText("Afiliacion en salud");
 
+        jTextFieldConvenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabelGrupo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelGrupo.setText("Grupo");
 
+        jLabelSanguineo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelSanguineo.setText("Sanguineo");
 
+        jComboBoxGrupoSanguineo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jLabelRH.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelRH.setText("RH");
 
+        jComboBoxRH.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
         jTextAreaDiagnostico.setColumns(20);
+        jTextAreaDiagnostico.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDiagnostico.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDiagnostico);
 
         jTextAreaMedicamentos.setColumns(20);
+        jTextAreaMedicamentos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaMedicamentos.setRows(5);
         jScrollPane2.setViewportView(jTextAreaMedicamentos);
 
         jTextAreaRecomendaciones.setColumns(20);
+        jTextAreaRecomendaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaRecomendaciones.setRows(5);
         jScrollPane3.setViewportView(jTextAreaRecomendaciones);
 
+        jLabelDiagnostico.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelDiagnostico.setText("Diagnostico");
 
-        jLabelRecomendaciones.setText("Recomendacion");
+        jLabelRecomendaciones.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelRecomendaciones.setText("Recomendación");
 
+        jLabelMedicamentos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabelMedicamentos.setText("Medicamentos");
 
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +106,8 @@ public class Salud extends javax.swing.JPanel {
             }
         });
 
-        jButtonVolver.setText("volver");
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
@@ -101,73 +119,65 @@ public class Salud extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(jLabelSalud))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabelConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelConvenio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabelSanguineo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelGrupo)
-                                .addGap(12, 12, 12)))
-                        .addComponent(jComboBoxGrupoSanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelRH)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxRH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabelDiagnostico)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelMedicamentos)
-                .addGap(108, 108, 108)
-                .addComponent(jLabelRecomendaciones)
-                .addGap(66, 66, 66))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelSanguineo)
+                            .addComponent(jLabelGrupo)
+                            .addComponent(jLabelSalud))
+                        .addGap(43, 43, 43)
+                        .addComponent(jComboBoxGrupoSanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabelRH)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxRH, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jButtonVolver)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabelDiagnostico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelMedicamentos)
+                        .addGap(78, 78, 78)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSiguienteModificar)
-                        .addGap(120, 120, 120)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(jLabelRecomendaciones)
+                    .addComponent(jButtonSiguienteModificar))
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSalud)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addComponent(jLabelSalud)
+                        .addGap(36, 36, 36)
                         .addComponent(jLabelGrupo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelSanguineo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxGrupoSanguineo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelRH)
@@ -182,7 +192,7 @@ public class Salud extends javax.swing.JPanel {
                     .addComponent(jLabelRecomendaciones)
                     .addComponent(jLabelMedicamentos)
                     .addComponent(jLabelDiagnostico))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSiguienteModificar)
                     .addComponent(jButtonVolver))

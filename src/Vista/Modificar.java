@@ -33,6 +33,7 @@ public class Modificar extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelDatosPersonales2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabelModificar = new javax.swing.JLabel();
         jButtonDatosPersonales = new javax.swing.JButton();
         jButtonUbicacionContacto = new javax.swing.JButton();
@@ -46,59 +47,58 @@ public class Modificar extends javax.swing.JPanel {
 
         jLabelDatosPersonales2.setText("Datos personales");
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPasswordField1.setText("jPasswordField1");
 
         jLabelModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelModificar.setText("MODIFICAR ESTUDIANTES");
-        add(jLabelModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
+        jButtonDatosPersonales.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonDatosPersonales.setText("Datos Personales");
         jButtonDatosPersonales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDatosPersonalesActionPerformed(evt);
             }
         });
-        add(jButtonDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 145, 40));
 
+        jButtonUbicacionContacto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonUbicacionContacto.setText("Ubicación y Contacto");
         jButtonUbicacionContacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUbicacionContactoActionPerformed(evt);
             }
         });
-        add(jButtonUbicacionContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 145, 40));
 
+        jButtonPerfilAcademico.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonPerfilAcademico.setText("Perfil Academico");
         jButtonPerfilAcademico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPerfilAcademicoActionPerformed(evt);
             }
         });
-        add(jButtonPerfilAcademico, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 145, 40));
 
+        jButtonSalud.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSalud.setText("Salud");
         jButtonSalud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaludActionPerformed(evt);
             }
         });
-        add(jButtonSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 145, 40));
 
+        jButtonFamilia.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonFamilia.setText("Familia");
         jButtonFamilia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFamiliaActionPerformed(evt);
             }
         });
-        add(jButtonFamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 145, 40));
 
+        jButtonInscripcion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonInscripcion.setText("Inscripción");
         jButtonInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInscripcionActionPerformed(evt);
             }
         });
-        add(jButtonInscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 145, 40));
 
         jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
@@ -107,13 +107,13 @@ public class Modificar extends javax.swing.JPanel {
                 jButtonVolverActionPerformed(evt);
             }
         });
-        add(jButtonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
 
         jTableEstudiantes = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
         };
+        jTableEstudiantes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTableEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -131,7 +131,58 @@ public class Modificar extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableEstudiantes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 580, 130));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabelModificar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(jButtonVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonFamilia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(70, 70, 70)
+                                .addComponent(jButtonInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonUbicacionContacto)
+                                .addGap(70, 70, 70)
+                                .addComponent(jButtonPerfilAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabelModificar)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonUbicacionContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPerfilAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFamilia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonInscripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonVolver))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -177,6 +228,7 @@ public class Modificar extends javax.swing.JPanel {
     private javax.swing.JButton jButtonVolver;
     private javax.swing.JLabel jLabelDatosPersonales2;
     private javax.swing.JLabel jLabelModificar;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableEstudiantes;
     // End of variables declaration//GEN-END:variables

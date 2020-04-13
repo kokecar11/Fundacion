@@ -46,6 +46,7 @@ public class PreFamilia extends javax.swing.JPanel {
                 return false;
             }
         };
+        jTableFamilia.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTableFamilia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -63,6 +64,7 @@ public class PreFamilia extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTableFamilia);
 
+        jButtonSiguienteModificar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonSiguienteModificar.setText("1");
         jButtonSiguienteModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +72,7 @@ public class PreFamilia extends javax.swing.JPanel {
             }
         });
 
+        jButtonCrear.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +80,7 @@ public class PreFamilia extends javax.swing.JPanel {
             }
         });
 
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +124,7 @@ public class PreFamilia extends javax.swing.JPanel {
                     .addComponent(jButtonSiguienteModificar)
                     .addComponent(jButtonCrear)
                     .addComponent(jButtonVolver))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

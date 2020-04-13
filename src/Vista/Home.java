@@ -50,7 +50,8 @@ public class Home extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 222, 95));
 
         jButtonRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/icons/equipo.png"))); // NOI18N
+        jButtonRegistro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButtonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/icons/profile_121261.png"))); // NOI18N
         jButtonRegistro.setText("Registro de Estudiantes");
         jButtonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +61,8 @@ public class Home extends javax.swing.JPanel {
         });
 
         jButtonModificacion.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonModificacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jButtonModificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/icons/edit_121277.png"))); // NOI18N
         jButtonModificacion.setText("Modificar Estudiantes");
         jButtonModificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +71,7 @@ public class Home extends javax.swing.JPanel {
         });
 
         jButtonObservaciones.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonObservaciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonObservaciones.setText("Observaciones");
         jButtonObservaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +80,7 @@ public class Home extends javax.swing.JPanel {
         });
 
         jButtonConsultas.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonConsultas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonConsultas.setText("Consultas");
         jButtonConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +89,7 @@ public class Home extends javax.swing.JPanel {
         });
 
         jButtonTalleres.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonTalleres.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonTalleres.setText("Talleres");
         jButtonTalleres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +98,7 @@ public class Home extends javax.swing.JPanel {
         });
 
         jButtonCerrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCerrarSesion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonCerrarSesion.setText("Salir");
         jButtonCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +106,7 @@ public class Home extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Fundación Pones");
         jLabel1.setToolTipText("");
@@ -148,7 +155,7 @@ public class Home extends javax.swing.JPanel {
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
+                .addContainerGap(297, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(128, 128, 128))
         );
@@ -244,7 +251,7 @@ public class Home extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelPrincipal;
+    public javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton jButtonCerrarSesion;
     private javax.swing.JButton jButtonConsultas;
     private javax.swing.JButton jButtonModificacion;

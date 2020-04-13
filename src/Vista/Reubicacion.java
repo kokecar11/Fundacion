@@ -44,16 +44,22 @@ public class Reubicacion extends javax.swing.JPanel {
         jButtonGuardar = new javax.swing.JButton();
 
         jLabelReubicacion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelReubicacion.setText("REUBICACION");
+        jLabelReubicacion.setText("RE-UBICACIÓN");
 
-        jLabelUbicacion.setText("Ubicacion");
+        jLabelUbicacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelUbicacion.setText("Ubicación");
+
+        jTextFieldUbicacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jTextAreaDescripcion.setColumns(20);
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
-        jLabelDescripcion.setText("Descripcion");
+        jLabelDescripcion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelDescripcion.setText("Descripción");
 
+        jButtonVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +67,7 @@ public class Reubicacion extends javax.swing.JPanel {
             }
         });
 
+        jButtonGuardar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,31 +79,30 @@ public class Reubicacion extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelDescripcion)
-                .addGap(242, 242, 242))
             .addGroup(layout.createSequentialGroup()
                 .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(jLabelReubicacion))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelUbicacion)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1)))
-                        .addContainerGap(47, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jButtonVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonGuardar)
-                        .addGap(116, 116, 116))))
+                .addComponent(jLabelUbicacion)
+                .addGap(34, 34, 34)
+                .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jButtonVolver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonGuardar)
+                .addGap(116, 116, 116))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(312, 312, 312)
+                .addComponent(jLabelDescripcion)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelReubicacion)
+                .addGap(257, 257, 257))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,11 +113,11 @@ public class Reubicacion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUbicacion)
                     .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelDescripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonGuardar))

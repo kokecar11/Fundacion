@@ -5,6 +5,7 @@
  */
 package Vista;
 import Vista.Principal;
+import Vista.Home;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 /**
@@ -50,10 +51,15 @@ public class Talleres extends javax.swing.JPanel {
         jLabelTalleres.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelTalleres.setText("TALLERES");
 
+        jLabelNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelNombre.setText("Nombre");
 
+        jTextFieldNombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jLabelEstado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelEstado.setText("Estado");
 
+        jComboBoxEstado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxEstadoItemStateChanged(evt);
@@ -61,13 +67,19 @@ public class Talleres extends javax.swing.JPanel {
         });
 
         jTextAreaDescripcion.setColumns(20);
+        jTextAreaDescripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextAreaDescripcion.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescripcion);
 
+        jLabelDescripcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelDescripcion.setText("Descripcion");
 
+        jLabelCupos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelCupos.setText("Cupos");
 
+        jTextFieldCupos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jButtonVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVolver.setText("Volver");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +87,7 @@ public class Talleres extends javax.swing.JPanel {
             }
         });
 
+        jButtonCrearModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonCrearModificar.setText("1");
         jButtonCrearModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,38 +99,38 @@ public class Talleres extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(354, 354, 354)
                 .addComponent(jLabelDescripcion)
-                .addGap(262, 262, 262))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jLabelTalleres))
+                        .addContainerGap(102, Short.MAX_VALUE)
+                        .addComponent(jLabelNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabelEstado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelCupos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldCupos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(100, 100, 100)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldNombre)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelEstado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelCupos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldCupos, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jButtonVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCrearModificar)
-                .addGap(95, 95, 95))
+                                .addComponent(jButtonVolver)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonCrearModificar)))))
+                .addGap(124, 124, 124))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTalleres)
+                .addGap(360, 360, 360))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +147,9 @@ public class Talleres extends javax.swing.JPanel {
                     .addComponent(jTextFieldCupos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelDescripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVolver)
                     .addComponent(jButtonCrearModificar))
@@ -258,8 +271,14 @@ public class Talleres extends javax.swing.JPanel {
         return principal.TallerExiste(jTextFieldNombre.getText(),taller);
     }
     private void Volver() {
-        principal.mostrarPanelPreTalleres();
-        principal.CargarTalleres();
+        Home h = new Home(principal);
+        h.setSize(836,550);
+        h.setLocation(5,5);
+        
+
+       /* principal.mostrarPanelHome();
+        principal.CargarTalleres();*/
+        
     }
     private boolean VerificarDatos() {
         if(jTextFieldNombre.getText().equals("")){
